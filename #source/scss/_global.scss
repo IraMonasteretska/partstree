@@ -1,0 +1,29 @@
+body,
+html {
+    height: 100%;
+}
+
+.main {
+    flex: 1 1 auto;
+}
+
+.pagewrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+@media(min-width:1500px) {
+    .container {
+        max-width: 1450px;
+    }
+}
+
+input {
+    outline: none;
+}
