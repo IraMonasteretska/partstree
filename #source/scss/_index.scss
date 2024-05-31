@@ -43,5 +43,140 @@
 
 .brandssection {
     background: rgba(244, 244, 244, 1);
-    padding: 95px 0;
+    padding: 95px 0 75px;
+
+    .row {
+        margin-left: -8px;
+        margin-right: -8px;
+
+        .col-xl-2 {
+            padding-left: 8px;
+            padding-right: 8px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.brandbox {
+    background: #fff;
+    border: 1px solid #C9C9C9;
+    border-radius: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 118px;
+    width: 100%;
+    transition: 0.3s;
+
+    img {
+        max-width: calc(100% - 20px);
+        max-height: calc(100% - 16px);
+    }
+}
+
+.maindescription .btnsgr a {
+    transition: 0.3s;
+
+    &:hover {
+        background: rgb(107 169 36);
+    }
+}
+
+.brandbox {
+
+    img {
+        transition: .3s;
+    }
+
+    &:hover {
+        background: rgb(81, 128, 26);
+
+        img {
+            filter: drop-shadow(2px 4px 6px #fff) grayscale(1);
+        }
+    }
+}
+
+@media(max-width:1599.8px) {
+
+    .maindescription h1 {
+        font-size: 45px;
+    }
+
+    .maindescription p {
+        font-size: 16px;
+    }
+
+    .maindescription .btnsgr a {
+        font-size: 16px;
+        height: 54px;
+    }
+
+    .maindescription {
+        padding: 70px 0 60px;
+    }
+
+    .brandssection {
+        padding: 70px 0;
+    }
+
+
+}
+
+@media(max-width:1199.8px) {
+    .maindescription h1 {
+        font-size: 36px;
+    }
+
+    .maindescription p {
+        margin-bottom: 20px;
+    }
+
+    .maindescription .btnsgr a {
+        height: 46px;
+    }
+
+    .brandbox {
+        height: 100px;
+    }
+
+
+
+}
+
+@media(max-width:991.8px) {
+    .maindescription h1 {
+        margin-bottom: 20px;
+    }
+
+    .maindescription p {
+        margin-bottom: 30px;
+    }
+
+    .maindescription .btnsgr {
+        max-width: 400px;
+    }
+}
+
+@media(max-width:575.8px) {
+    .maindescription h1 {
+        font-size: 28px;
+    }
+
+    .maindescription,
+    .brandssection {
+        padding: 50px 0;
+    }
+
+    .brandbox {
+        height: 80px;
+
+        img {
+            max-width: calc(100% - 30px);
+            max-height: calc(100% - 30px);
+        }
+    }
+
+
+
 }
