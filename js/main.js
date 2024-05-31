@@ -12,12 +12,4 @@ $(document).ready(function () {
         $('.header__accdd').toggleClass('show');
     });
 
-
-
-
-
-
-
-
-
 });
