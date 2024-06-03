@@ -1,0 +1,33 @@
+.brandsection {
+    padding: 100px 0 130px;
+}
+
+.brandfield {
+    margin-bottom: 150px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    .leftblock {
+        .title {
+            margin-bottom: 40px;
+            color: rgb(20, 20, 20);
+            font-weight: 600;
+            font-size: 40px;
+            line-height: 130%;
+        }
+
+        .filtersearch {
+            max-width: 266px;
+        }
+    }
+
+    .brandslist {
+        a {
+            display: inline-block;
+            background: #EDEDED;
+            margin-right: 11px;
+        }
+    }
+}

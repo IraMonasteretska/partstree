@@ -12,4 +12,20 @@ $(document).ready(function () {
         $('.header__accdd').toggleClass('show');
     });
 
+    $('.itembtn .close').click(function(){
+        $(this).parent().remove();
+    })
+
+    $('.showall').click(function(){
+        $(this).parents('.filterbox').toggleClass('active');
+        $(this).find('span').toggle();
+    });
+
+    $('.filterbox .title').click(function(){
+        $(this).next('.filterwrapbox').slideToggle();
+    });
+
+
+
+
 });

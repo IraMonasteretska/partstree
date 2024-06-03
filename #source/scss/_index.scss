@@ -89,10 +89,12 @@
     }
 
     &:hover {
-        background: rgb(81, 128, 26);
+        // background: rgb(81, 128, 26);
+        border: 1px solid rgba(81, 128, 26, 1);
+        box-shadow: 0 4px 13px rgba(81, 128, 26, 0.25);
 
         img {
-            filter: drop-shadow(2px 4px 6px #fff);
+            // filter: drop-shadow(2px 4px 6px #fff);
         }
     }
 }
