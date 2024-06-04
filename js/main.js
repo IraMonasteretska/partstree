@@ -25,6 +25,14 @@ $(document).ready(function () {
         $(this).next('.filterwrapbox').slideToggle();
     });
 
+    // brands
+    $('.brandslist_more').click(function(){
+        $(this).toggleClass('active');
+        $(this).find('span').toggle();
+        $(this).prev('.brandslist').toggleClass('open');
+    });
+
+
 
 
 
