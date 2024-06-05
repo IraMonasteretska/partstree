@@ -31,58 +31,60 @@
         padding-top: 40px;
     }
 
-    .breadcrumbwrapper {
-        position: absolute;
-        z-index: 2;
-        width: 100%;
-        left: 0;
-        top: 50px;
-        margin: 0 auto;
-        left: 0;
-        right: 0;
+    
+}
 
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
+.breadcrumbwrapper {
+    position: absolute !important;
+    z-index: 2;
+    width: 100%;
+    left: 0;
+    top: 50px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
 
-            li {
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            margin-right: 31px;
+            color: rgb(81, 128, 26);
+
+            &::after {
+                content: '';
                 display: inline-block;
-                vertical-align: middle;
-                position: relative;
-                margin-right: 31px;
-                color: rgb(81, 128, 26);
+                width: 11px;
+                height: 15px;
+                background: url('../img/category/breadcrumb-arrow.svg') no-repeat center / 100%;
+                position: absolute;
+                top: 4px;
+                right: -22px;
+            }
+
+            &:last-child {
+                margin-right: 0;
 
                 &::after {
-                    content: '';
-                    display: inline-block;
-                    width: 11px;
-                    height: 15px;
-                    background: url('../img/category/breadcrumb-arrow.svg') no-repeat center / 100%;
-                    position: absolute;
-                    top: 4px;
-                    right: -22px;
+                    display: none;
                 }
+            }
 
-                &:last-child {
-                    margin-right: 0;
+            a {
+                font-weight: 500;
+                font-size: 15px;
+                line-height: 120%;
+                color: #fff;
+                text-decoration: none;
+                transition: 0.3s;
 
-                    &::after {
-                        display: none;
-                    }
-                }
-
-                a {
-                    font-weight: 500;
-                    font-size: 15px;
-                    line-height: 120%;
-                    color: #fff;
-                    text-decoration: none;
-                    transition: 0.3s;
-
-                    &:hover {
-                        color: rgb(81, 128, 26);
-                    }
+                &:hover {
+                    color: rgb(81, 128, 26);
                 }
             }
         }
