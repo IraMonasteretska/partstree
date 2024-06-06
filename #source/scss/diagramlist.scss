@@ -76,6 +76,21 @@
         background: #fff;
         border-radius: 15px;
         box-shadow: 0 4px 20px rgb(#000, 0.06);
+        text-decoration: none;
+        transition: 0.3s;
+        border: 1px solid #fff;
+
+        .descrwrap img {
+            transition: 0.3s;
+        }
+
+        &:hover {
+            border: 1px solid #51801A;
+
+            .descrwrap img {
+                transform: translateX(5px) translateY(-50%);
+            }
+        }
 
         .imgwrap {
             height: 314px;
@@ -90,9 +105,167 @@
         }
 
         .descrwrap {
-            padding: 30px 35px 35px 35px;
+            padding: 30px 130px 35px 35px;
+            position: relative;
+
+            .title {
+                margin-bottom: 15px;
+                font-size: 21px;
+                font-weight: 600;
+                color: rgb(20, 20, 20);
+            }
+
+            p {
+                font-size: 16px;
+                color: #3B454D;
+                margin: 0;
+            }
+
+            img {
+                position: absolute;
+                right: 35px;
+                top: 50%;
+                transform: translateY(-50%);
+                margin-top: 20px;
+            }
         }
 
 
+    }
+}
+
+.pagination ul li.active a {
+    background: rgb(81, 128, 26);
+    color: #fff;
+}
+
+
+@media(max-width:1599.8px) {
+    .diaglisttop {
+        padding-bottom: 100px;
+    }
+
+    .diaglisttop h1 {
+        font-size: 41px;
+        margin-bottom: 25px;
+    }
+
+}
+
+@media(max-width:1399.8px) {
+    .diaglistmain .row {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    .diaglistmain .col-lg-6 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .diaglistmain .modelbox .imgwrap {
+        height: 260px;
+    }
+
+    .diaglistmain .modelbox .descrwrap .title {
+        margin-bottom: 10px;
+    }
+
+    .diaglistmain .modelbox .descrwrap img {
+        width: 40px;
+    }
+
+    .diaglistmain .modelbox .descrwrap {
+        padding-right: 100px;
+    }
+
+    .diaglistmain .col-lg-6 {
+        margin-bottom: 30px;
+    }
+
+
+}
+
+@media(max-width:1199.8px) {
+    .diaglisttop .col-xl-3.text-end {
+        text-align: left !important;
+    }
+
+    .diaglisttop .modelbrand {
+        margin-top: 30px;
+    }
+
+    .diaglisttop {
+        padding-bottom: 60px;
+    }
+
+    .diaglistmain .modelbox .imgwrap {
+        height: 230px;
+    }
+
+}
+
+@media(max-width:991.8px) {
+
+    .diaglisttop h1 {
+        font-size: 36px;
+    }
+
+
+}
+
+@media(max-width:575.8px) {
+    .diaglisttop h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+
+        br {
+            display: none;
+        }
+    }
+
+    .diaglisttop .modelbrand {
+        height: 80px;
+        border-radius: 10px;
+        max-width: 200px;
+        margin-top: 15px;
+    }
+
+    .diaglisttop {
+        padding-bottom: 40px;
+    }
+
+    .diaglistmain .modelbox .imgwrap {
+        height: 170px;
+    }
+
+    .diaglistmain .modelbox .descrwrap {
+        padding: 15px 60px 15px 15px;
+        position: relative;
+    }
+
+    .diaglistmain .modelbox .descrwrap .title {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .diaglistmain .modelbox .descrwrap p {
+        font-size: 15px;
+    }
+
+    .diaglistmain .modelbox .descrwrap img {
+        width: 30px;
+        right: 20px;
+        top: initial;
+        bottom: 20px;
+        transform: none;
+    }
+
+    .diaglistmain .col-lg-6 {
+        margin-bottom: 15px;
+    }
+
+    .diaglistmain {
+        padding-bottom: 60px;
     }
 }
