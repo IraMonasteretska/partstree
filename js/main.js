@@ -37,9 +37,15 @@ $(document).ready(function () {
     if ($('.mySwiper').length) {
         var swiper = new Swiper(".mySwiper", {
             spaceBetween: 10,
-            slidesPerView: 4,
             freeMode: true,
             watchSlidesProgress: true,
+            slidesPerView: 3,
+            breakpoints: {
+                575: {
+                    slidesPerView: 4,
+                },
+
+            },
         });
         var swiper2 = new Swiper(".mySwiper2", {
             spaceBetween: 10,
@@ -73,5 +79,34 @@ $(document).ready(function () {
 
 
 
+    if($(window).width() > 990) {
+        $(function () {
+            $('.imgZoom').mooZoom({
+                zoom: {
+                    width: 200,
+                    height: 200,
+                    zIndex: 600
+                },
+                overlay: {
+                    // opacity: 0.65,
+                    zIndex: 500,
+                    // backgroundColor: '#000000',
+                    fade: true
+                },
+                detail: {
+                    zIndex: 600,
+                    margin: {
+                        top: 0,
+                        left: 10
+                    },
+                    fade: true
+                },
+                animationDuration: 1000,
+    
+    
+            });
+        });
+    }
+   
 
 });
