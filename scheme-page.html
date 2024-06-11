@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheme pahe</title>
+    <!-- <link rel="icon" type="image/x-icon" href="img/favicon.png"> -->
+    <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="css/lib/select2.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+
+
+
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="pagewrapper">
+        <header class="header">
+            <div class="header__topsect">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-lg-2 col-sm-4 col-4">
+                            <a href="#" class="header__logo">
+                                <img src="img/home/logo.svg" alt="logo">
+                            </a>
+                        </div>
+                        <div class="col-xl-5 col-lg-6 searchboxmob">
+                            <div class="header__searchbox">
+                                <div class="header__select">
+                                    <select name="" id="" class="styledselect" data-placeholder="Models">
+                                        <option></option>
+                                        <option value="1">Model 1</option>
+                                        <option value="2">Model 2</option>
+                                        <option value="3">Model 3</option>
+                                    </select>
+                                </div>
+                                <div class="header__search">
+                                    <input type="text" placeholder="Search">
+                                    <button>
+                                        <img src="img/home/search-icon.svg" alt="search">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-lg-4 col-sm-8 col-8 text-end">
+                            <button class="mobsearchopen">
+                                <img src="img/home/search-icon.svg" alt="icom">
+                            </button>
+                            <div class="header__cart">
+                                <div class="header__cartimg">
+                                    <img src="img/home/cart-icon.svg" alt="img">
+                                    <span class="hlalel">3</span>
+                                </div>
+                                <div class="header__cartprice">
+                                    <p>10 000 $</p>
+                                </div>
+                            </div>
+                            <div class="header__acc">
+                                <div class="header__acctop">
+                                    <div class="header__accimg">
+                                        <img src="img/home/user-icon.svg" alt="user">
+                                    </div>
+                                    <div class="header__accdescr">
+                                        <p>Sign In</p>
+                                        <p class="title">Account</p>
+                                    </div>
+                                </div>
+                                <div class="header__accdd">
+                                    <a href="#" class="login">Login</a>
+                                    <a href="#">New customer?</a>
+                                    <a href="#" class="signup">Sign up</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header__bottsect">
+                <div class="container">
+                    <ul>
+                        <li><a href="#">All brands</a></li>
+                        <li><a href="#">All equipment</a></li>
+                        <li><a href="#">Category</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </header>
+
+        <main class="main">
+            <section class="modeldiagrams schemepage">
+                <div class="diaglisttop">
+                    <div class="container breadcrumbwrapper">
+                        <div class="breadcrumbs whitepage">
+                            <ul>
+                                <li>
+                                    <a href="#">Home</a>
+                                </li>
+                                <li>Search Results</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-9">
+                                <h1>
+                                    24" Stand-On Aerator,<br> Kohler CH440
+                                </h1>
+                            </div>
+                            <div class="col-xl-3 text-end">
+                                <div class="modelbrand">
+                                    <img src="img/listmodel/brandlogo.png" alt="img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </section>
+
+            <section class="schemesection">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-7">
+                            <div class="lbwrap">
+                                <div class="zoom_outer">
+                                    <div id="zoom">
+                                        <img src="img/scheme/img1.png" alt="zoom">
+
+                                        <span class="circlesch" style="left: 41%;top:14.822%" data-point="1"></span>
+                                        <span class="circlesch" style="left: 54.05%;top:35.35%" data-point="2"></span>
+
+                                        <div class="schmodal" data-modal="1">
+                                            <p class="title">Title</p>
+                                        </div>
+                                        <div class="schmodal" data-modal="2">
+                                            <button class="close">close</button>
+                                            <p class="title">Title 2</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="controls">
+                                    <button id="zoom-in">
+                                        <img src="img/scheme/plus.svg" alt="plus">
+                                    </button>
+                                    <button id="zoom-out">
+                                        <img src="img/scheme/minus.svg" alt="minus">
+                                    </button>
+                                    <button id="fullscreen" data-fancybox="gallery" href="img/scheme/img1.png">
+                                        <img src="img/scheme/fullscreen.svg" alt="img">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5">
+                            <div class="rbwrap">
+                                <div class="schemebox" id="1">
+                                    <div class="schemebox__left">
+                                        <span class="textlabel">
+                                            Top
+                                        </span>
+                                        <div class="imgwrap">
+                                            <img src="img/scheme/imgsch1.png" alt="img">
+                                        </div>
+                                    </div>
+                                    <div class="schemebox__right">
+                                        <a href="#" class="title">Billy Goat 360324</a>
+                                        <p class="descr">FRAME ASSEMBLY WA AE402</p>
+                                        <div class="stocktext">
+                                            <span>In Stock:</span> 20+<i>pcs</i>
+                                        </div>
+                                        <div class="botinf">
+                                            <div class="schemebox__price">
+                                                <s>$34.99</s>
+                                                <p class="newpr">$71.99</p>
+                                            </div>
+                                            <div class="numcoutn">
+                                                <div class="number">
+                                                    <span class="minus"><img src="img/product/minus.svg"
+                                                            alt="minus"></span>
+                                                    <input type="text" value="1">
+                                                    <span class="plus"><img src="img/product/plus.svg"
+                                                            alt="minus"></span>
+                                                </div>
+                                            </div>
+                                            <button class="addtocard">
+                                                Add to Cart
+                                                <img src="img/product/cart-icon.svg" alt="icon">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="schemebox" id="2">
+                                    <div class="schemebox__left">
+                                        <span class="countlabel">
+                                            1
+                                        </span>
+                                        <div class="imgwrap">
+                                            <img src="img/scheme/imgsch2.png" alt="img">
+                                        </div>
+                                    </div>
+                                    <div class="schemebox__right">
+                                        <a href="#" class="title">Billy Goat 360324</a>
+                                        <p class="descr">FRAME ASSEMBLY WA AE402</p>
+                                        <div class="stocktext">
+                                            <span>In Stock:</span> 20+<i>pcs</i>
+                                        </div>
+                                        <div class="botinf">
+                                            <div class="schemebox__price">
+                                                <p>$12.99</p>
+                                            </div>
+                                            <div class="numcoutn">
+                                                <div class="number">
+                                                    <span class="minus"><img src="img/product/minus.svg"
+                                                            alt="minus"></span>
+                                                    <input type="text" value="1">
+                                                    <span class="plus"><img src="img/product/plus.svg"
+                                                            alt="minus"></span>
+                                                </div>
+                                            </div>
+                                            <button class="addtocard">
+                                                Add to Cart
+                                                <img src="img/product/cart-icon.svg" alt="icon">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="schemebox">
+                                    <div class="schemebox__left">
+                                        <span class="countlabel">
+                                            2
+                                        </span>
+                                        <div class="imgwrap">
+                                            <img src="img/scheme/imgsch3.png" alt="img">
+                                        </div>
+                                    </div>
+                                    <div class="schemebox__right">
+                                        <a href="#" class="title">Billy Goat 360324</a>
+                                        <p class="descr">FRAME ASSEMBLY WA AE402</p>
+                                        <div class="stocktext">
+                                            <span>In Stock:</span> 20+<i>pcs</i>
+                                        </div>
+                                        <div class="botinf">
+                                            <div class="schemebox__price">
+                                                <p>$12.99</p>
+                                            </div>
+                                            <div class="numcoutn">
+                                                <div class="number">
+                                                    <span class="minus"><img src="img/product/minus.svg"
+                                                            alt="minus"></span>
+                                                    <input type="text" value="1">
+                                                    <span class="plus"><img src="img/product/plus.svg"
+                                                            alt="minus"></span>
+                                                </div>
+                                            </div>
+                                            <button class="addtocard">
+                                                Add to Cart
+                                                <img src="img/product/cart-icon.svg" alt="icon">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="schemebox">
+                                    <div class="schemebox__left">
+                                        <span class="countlabel">
+                                            3
+                                        </span>
+                                        <div class="imgwrap">
+                                            <img src="img/scheme/imgsch4.png" alt="img">
+                                        </div>
+                                    </div>
+                                    <div class="schemebox__right">
+                                        <a href="#" class="title">Billy Goat 360324</a>
+                                        <p class="descr">FRAME ASSEMBLY WA AE402</p>
+                                        <div class="stocktext">
+                                            <span>In Stock:</span> 20+<i>pcs</i>
+                                        </div>
+                                        <div class="botinf">
+                                            <div class="schemebox__price">
+                                                <p>$12.99</p>
+                                            </div>
+                                            <div class="numcoutn">
+                                                <div class="number">
+                                                    <span class="minus"><img src="img/product/minus.svg"
+                                                            alt="minus"></span>
+                                                    <input type="text" value="1">
+                                                    <span class="plus"><img src="img/product/plus.svg"
+                                                            alt="minus"></span>
+                                                </div>
+                                            </div>
+                                            <button class="addtocard">
+                                                Add to Cart
+                                                <img src="img/product/cart-icon.svg" alt="icon">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="schemebox">
+                                    <div class="schemebox__left">
+                                        <span class="countlabel">
+                                            4
+                                        </span>
+                                        <div class="imgwrap">
+                                            <img src="img/scheme/imgsch4.png" alt="img">
+                                        </div>
+                                    </div>
+                                    <div class="schemebox__right">
+                                        <a href="#" class="title">Billy Goat 360324</a>
+                                        <p class="descr">FRAME ASSEMBLY WA AE402</p>
+                                        <div class="stocktext">
+                                            <span>In Stock:</span> 20+<i>pcs</i>
+                                        </div>
+                                        <div class="botinf">
+                                            <div class="schemebox__price">
+                                                <p>$12.99</p>
+                                            </div>
+                                            <div class="numcoutn">
+                                                <div class="number">
+                                                    <span class="minus"><img src="img/product/minus.svg"
+                                                            alt="minus"></span>
+                                                    <input type="text" value="1">
+                                                    <span class="plus"><img src="img/product/plus.svg"
+                                                            alt="minus"></span>
+                                                </div>
+                                            </div>
+                                            <button class="addtocard">
+                                                Add to Cart
+                                                <img src="img/product/cart-icon.svg" alt="icon">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="text-center">
+                    <a href="#" class="moblogo">
+                        <img src="img/home/footerlogo.svg" alt="logo">
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-xl-3 col-lg-4 col-md-12">
+                        <div class="footer__logosect">
+                            <a href="#">
+                                <img src="img/home/footerlogo.svg" alt="logo">
+                            </a>
+                            <p>
+                                American looksets2024<br>
+                                © All rights reserved
+                            </p>
+                            <ul>
+                                <li><a href="#"><img src="img/home/footer-card1.svg" alt="img"></a></li>
+                                <li><a href="#"><img src="img/home/footer-card2.svg" alt="img"></a></li>
+                                <li><a href="#"><img src="img/home/footer-card3.svg" alt="img"></a></li>
+                                <li><a href="#"><img src="img/home/footer-card4.svg" alt="img"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-4 col-md-6">
+                        <div class="footercentersect">
+                            <div class="footer__listwrap">
+                                <p>Content:</p>
+                                <ul>
+                                    <li><a href="#">All brands</a></li>
+                                    <li><a href="#">All equipment</a></li>
+                                    <li><a href="#">Category</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="footer__rightsect">
+                            <div class="footblock">
+                                <p>Email:</p>
+                                <a href="mailto:help@american_looksets.com">help@american_looksets.com</a>
+                            </div>
+                            <div class="footblock">
+                                <p>Contacts:</p>
+                                <a href="tel:8774714870">tel: 877-471-4870</a>
+                            </div>
+                            <div class="footblock">
+                                <p>Social:</p>
+                                <ul class="soclist">
+                                    <li><a href="#" target="_blank"><img src="img/home/soc1.svg" alt="soc"></a></li>
+                                    <li><a href="#" target="_blank"><img src="img/home/soc2.svg" alt="soc"></a></li>
+                                    <li><a href="#" target="_blank"><img src="img/home/soc3.svg" alt="soc"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/select2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+
+</html>
