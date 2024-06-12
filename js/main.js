@@ -109,9 +109,7 @@ $(document).ready(function () {
         }
     }
 
-
-
-
+    // l
     var scale = 1,
         panning = false,
         pointX = 0,
@@ -155,7 +153,30 @@ $(document).ready(function () {
         setTransform();
     }
 
-    // Обробники подій для кнопок zoom-in і zoom-out
+    // Touch events
+    zoom.ontouchstart = function (e) {
+        e.preventDefault();
+        var touch = e.touches[0];
+        start = { x: touch.clientX - pointX, y: touch.clientY - pointY };
+        panning = true;
+    }
+
+    zoom.ontouchend = function (e) {
+        panning = false;
+    }
+
+    zoom.ontouchmove = function (e) {
+        e.preventDefault();
+        if (!panning) {
+            return;
+        }
+        var touch = e.touches[0];
+        pointX = (touch.clientX - start.x);
+        pointY = (touch.clientY - start.y);
+        setTransform();
+    }
+
+    // Zoom-in and Zoom-out buttons
     document.getElementById("zoom-in").addEventListener("click", function () {
         scale *= 1.2;
         pointX = (pointX - zoom.clientWidth / 2) * 1.2 + zoom.clientWidth / 2;
@@ -169,6 +190,77 @@ $(document).ready(function () {
         pointY = (pointY - zoom.clientHeight / 2) / 1.2 + zoom.clientHeight / 2;
         setTransform();
     });
+
+    // Function to handle circle click/tap
+    function handleCircleClick(event) {
+        const circle = event.target.closest('.circlesch');
+        if (!circle) return;
+
+        const point = circle.getAttribute('data-point');
+        const modal = document.querySelector(`.schmodal[data-modal="${point}"]`);
+        if (modal) {
+            if (modal.style.display === 'block') {
+                modal.style.display = 'none';
+            } else {
+                // Hide other modals
+                document.querySelectorAll('.schmodal').forEach(m => {
+                    m.style.display = 'none';
+                });
+
+                const circleRect = circle.getBoundingClientRect();
+                const zoomRect = document.getElementById('zoom').getBoundingClientRect();
+                const modalRect = modal.getBoundingClientRect();
+
+                const leftPosition = circleRect.left - zoomRect.left + (circleRect.width / 2) - (modalRect.width / 2);
+                const topPosition = circleRect.top - zoomRect.top + circleRect.height;
+
+                modal.style.left = `${leftPosition}px`;
+                modal.style.top = `${topPosition}px`;
+                modal.style.display = 'block';
+            }
+        }
+    }
+
+    // Add click and touch events to circles
+    const circles = document.querySelectorAll('.circlesch');
+    circles.forEach(circle => {
+        circle.addEventListener('click', handleCircleClick);
+        circle.addEventListener('touchstart', handleCircleClick);
+    });
+
+    // Close modals when clicking outside
+    document.addEventListener('click', function (event) {
+        if (!event.target.classList.contains('circlesch') && !event.target.closest('.schmodal')) {
+            const modals = document.querySelectorAll('.schmodal');
+            modals.forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+    });
+
+    document.addEventListener('touchstart', function (event) {
+        if (!event.target.classList.contains('circlesch') && !event.target.closest('.schmodal')) {
+            const modals = document.querySelectorAll('.schmodal');
+            modals.forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+    });
+
+    // ---------------------------------------------------
+
+   
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -204,47 +296,13 @@ $(document).ready(function () {
 
 
 
-    const circles = document.querySelectorAll('.circlesch');
-            
-    circles.forEach(circle => {
-        circle.addEventListener('click', function() {
-            const point = this.getAttribute('data-point');
-            const modal = document.querySelector(`.schmodal[data-modal="${point}"]`);
-            if (modal) {
-                if (modal.style.display === 'block') {
-                    modal.style.display = 'none';
-                } else {
-                    // Hide other modals
-                    document.querySelectorAll('.schmodal').forEach(m => {
-                        m.style.display = 'none';
-                    });
 
-                    const circleRect = this.getBoundingClientRect();
-                    const zoomRect = document.getElementById('zoom').getBoundingClientRect();
-                    const modalRect = modal.getBoundingClientRect();
-
-                    const leftPosition = circleRect.left - zoomRect.left + (circleRect.width / 2) - (modalRect.width / 2);
-                    const topPosition = circleRect.top - zoomRect.top + circleRect.height;
-
-                    modal.style.left = `${leftPosition}px`;
-                    modal.style.top = `${topPosition}px`;
-                    modal.style.display = 'block';
-                }
-            }
+    $('.schmodal .close').click(function () {
+        const modals = document.querySelectorAll('.schmodal');
+        modals.forEach(modal => {
+            modal.style.display = 'none';
         });
     });
-
-    document.addEventListener('click', function(event) {
-        if (!event.target.classList.contains('circlesch') && !event.target.closest('.schmodal')) {
-            const modals = document.querySelectorAll('.schmodal');
-            modals.forEach(modal => {
-                modal.style.display = 'none';
-            });
-        }
-    });
-
-
-
 
 
 
