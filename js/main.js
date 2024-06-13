@@ -76,8 +76,6 @@ $(document).ready(function () {
         return false;
     });
 
-
-
     if ($('.imgZoom').length) {
         if ($(window).width() > 990) {
             $(function () {
@@ -249,21 +247,6 @@ $(document).ready(function () {
 
     // ---------------------------------------------------
 
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // show modals
     const schemeBoxes = document.querySelectorAll('.schemebox');
 
@@ -291,31 +274,11 @@ $(document).ready(function () {
         });
     });
 
-
-
-
-
-
-
     $('.schmodal .close').click(function () {
         const modals = document.querySelectorAll('.schmodal');
         modals.forEach(modal => {
             modal.style.display = 'none';
         });
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });

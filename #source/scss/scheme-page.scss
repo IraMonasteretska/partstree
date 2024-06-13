@@ -468,6 +468,10 @@ div#zoom>img {
     .zoom_outer {
         height: 600px;
     }
+
+    .rbwrap {
+        height: 600px;
+    }
 }
 
 @media(max-width:1399.8px) {
@@ -502,11 +506,20 @@ div#zoom>img {
         flex: 0 0 234px;
     }
 
+    .rbwrap {
+        height: auto;
+        padding-right: 0;
+    }
+
 }
 
 @media(max-width:991.8px) {
     .modeldiagrams.schemepage .diaglisttop {
         padding-bottom: 50px;
+    }
+
+    .schemesection {
+        padding-bottom: 80px;
     }
 }
 
@@ -526,9 +539,6 @@ div#zoom>img {
         left: 10px !important;
         transform: none;
     }
-
-
-
 
     #zoom-out {
         top: initial;
@@ -614,4 +624,12 @@ div#zoom>img {
         padding-top: 0;
     }
 
+    .schemebox {
+        border-radius: 10px;
+    }
+
+    .schemebox__right {
+        padding: 10px;
+    }
 }
+
