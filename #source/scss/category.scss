@@ -498,14 +498,14 @@
 
         .price {
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             flex-wrap: wrap;
             min-height: 44px;
 
             p {
                 width: 100%;
-                max-width: calc(100% - 38px);
-                flex: 0 0 calc(100% - 38px);
+                max-width: calc(100% - 55px);
+                flex: 0 0 calc(100% - 55px);
                 margin: 0;
                 font-size: 13px;
                 color: #353535;
@@ -522,15 +522,16 @@
                 align-items: center;
                 justify-content: center;
                 width: 100%;
-                max-width: 38px;
-                flex: 0 0 38px;
-                height: 38px;
+                max-width: 55px;
+                flex: 0 0 55px;
+                height: 55px;
                 background: rgb(81, 128, 26);
-                border-radius: 50%;
+                border-radius: 8px;
                 border: none;
 
                 img {
-                    max-width: 100%;
+                    max-width: 35px;
+                    width: 100%;
                 }
             }
         }
