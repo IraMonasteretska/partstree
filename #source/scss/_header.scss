@@ -16,7 +16,9 @@ header.header {
 
 .header__searchbox {
     display: flex;
-    padding-right: 65px;
+    // padding-right: 65px;
+    background: #F6F6F6;
+    border-radius: 38px;
 
     .header__select {
         width: 100%;
@@ -543,3 +545,105 @@ header.header {
 
 
 // 51801A
+
+.headerswitchbox {
+    input {
+        display: none;
+
+        &:checked+label {
+            background: #51801a3b;
+
+            span {
+                display: block;
+
+                &.show {
+                    display: none;
+                }
+            }
+
+            &::after {
+                left: calc(100% - 43px);
+            }
+        }
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 47px;
+        background: #EEEEEE;
+        border-radius: 38px;
+        position: relative;
+
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 3px;
+            top: 3px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+            background-image: linear-gradient(to bottom, white 40%, #f0f0f0);
+            transition: 0.3s;
+        }
+
+        span {
+            display: none;
+            color: #352C2B;
+            font-weight: 500;
+            font-size: 16px;
+            width: 100%;
+
+            &.show {
+                display: block;
+            }
+
+            &:nth-child(1) {
+                text-align: right;
+                padding-right: 15px;
+            }
+
+            &:nth-child(2) {
+                text-align: left;
+                padding-left: 15px;
+            }
+        }
+    }
+}
+
+
+@media(max-width:1199.8px) {
+    .header__searchbox {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media(max-width:575.8px) {
+    .headerswitchbox label {
+        height: 40px;
+    }
+
+    .headerswitchbox label:after {
+        height: 34px;
+        width: 34px;
+    }
+
+    .headerswitchbox input:checked+label:after {
+        left: calc(100% - 37px);
+    }
+
+    .headerswitchbox label span {
+        font-size: 14px;
+    }
+
+    .searchboxmob {
+        padding: 10px;
+    }
+}
+
+/*  End Toggle Switch  */
