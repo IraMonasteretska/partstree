@@ -287,5 +287,10 @@ $(document).ready(function () {
         $('.searchboxmob').toggle()
     })
 
+    $('.headertogglebtns button').click(function(){
+        $('.headertogglebtns button').removeClass('active');
+        $(this).addClass('active');
+    })
+
 
 });
