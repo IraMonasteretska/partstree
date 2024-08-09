@@ -36,13 +36,17 @@ $(document).ready(function () {
     // product
     if ($('.mySwiper').length) {
         var swiper = new Swiper(".mySwiper", {
-            spaceBetween: 10,
-            freeMode: true,
-            watchSlidesProgress: true,
+            spaceBetween: 15,
             slidesPerView: 3,
             breakpoints: {
-                575: {
+                1199: {
                     slidesPerView: 4,
+                },
+                992: {
+                    slidesPerView: 3,
+                },
+                575: {
+                    slidesPerView: 3,
                 },
 
             },
@@ -50,10 +54,10 @@ $(document).ready(function () {
         var swiper2 = new Swiper(".mySwiper2", {
             spaceBetween: 10,
             effect: "fade",
-            // navigation: {
-            //   nextEl: ".swiper-button-next",
-            //   prevEl: ".swiper-button-prev",
-            // },
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
             thumbs: {
                 swiper: swiper,
             },
