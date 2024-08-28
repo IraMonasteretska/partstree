@@ -16,6 +16,10 @@ html {
 
 body {
     font-family: "Montserrat", sans-serif;
+
+    &.hidden {
+        overflow: hidden;
+    }
 }
 
 @media(min-width:1500px) {

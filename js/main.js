@@ -55,8 +55,8 @@ $(document).ready(function () {
             spaceBetween: 10,
             effect: "fade",
             navigation: {
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
             thumbs: {
                 swiper: swiper,
@@ -287,14 +287,45 @@ $(document).ready(function () {
         });
     });
 
-    $('.mobsearchopen').click(function(){
+    $('.mobsearchopen').click(function () {
         $('.searchboxmob').toggle()
     })
 
-    $('.headertogglebtns button').click(function(){
+    $('.headertogglebtns button').click(function () {
         $('.headertogglebtns button').removeClass('active');
         $(this).addClass('active');
     })
+
+
+
+    // --------------------------------------------------
+
+    $(".dd-item").on("mouseenter", function () {
+        $('.menubg').stop(true, true).fadeIn();
+    });
+
+    $(".dd-item").on("mouseleave", function () {
+        $('.menubg').stop(true, true).fadeOut();
+    });
+
+
+    // menu btn
+    (function () {
+        var burger2;
+        burger2 = document.querySelector(".burger2");
+        burger2.addEventListener("click", function () {
+            return burger2.classList.toggle("on");
+        });
+
+    }).call(this);
+
+    $('.burger').click(function () {
+        $('.adaptmenu').toggleClass('show');
+        $('.header__bottsect').toggleClass('open');
+        $('body').toggleClass('hidden');
+    })
+
+
 
 
 });
