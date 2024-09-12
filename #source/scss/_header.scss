@@ -130,6 +130,10 @@ header.header {
     }
 }
 
+.header__burger {
+    display: none;
+}
+
 .select2-dropdown {
     border: none !important;
     background: #fff;
@@ -617,6 +621,7 @@ header.header {
     width: 100%;
     height: 100vh;
     display: none;
+    z-index: 2;
 }
 
 header.header {

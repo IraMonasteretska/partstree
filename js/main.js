@@ -326,6 +326,30 @@ $(document).ready(function () {
     })
 
 
+    // ------------------------------
+    var swiper = new Swiper(".heroslider", {
+        slidesPerView: 2,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        breakpoints: {
+            1400: {
+                slidesPerView: 4,
+            },
+            768: {
+                slidesPerView: 3,
+            },
+            576: {
+                slidesPerView: 2,
+            },
+
+        },
+    });
 
 
 });
