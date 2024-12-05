@@ -310,14 +310,17 @@ $(document).ready(function () {
 
 
     // menu btn
-    (function () {
-        var burger2;
-        burger2 = document.querySelector(".burger2");
-        burger2.addEventListener("click", function () {
-            return burger2.classList.toggle("on");
-        });
 
-    }).call(this);
+    if ($('.burger2').length) {
+        (function () {
+            var burger2;
+            burger2 = document.querySelector(".burger2");
+            burger2.addEventListener("click", function () {
+                return burger2.classList.toggle("on");
+            });
+
+        }).call(this);
+    }
 
     $('.burger').click(function () {
         $('.adaptmenu').toggleClass('show');
@@ -327,29 +330,36 @@ $(document).ready(function () {
 
 
     // ------------------------------
-    var swiper = new Swiper(".heroslider", {
-        slidesPerView: 2,
-        spaceBetween: 20,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-            el: ".swiper-pagination",
-        },
-        breakpoints: {
-            1400: {
-                slidesPerView: 4,
+    if ($('.heroslider').length) {
+        var swiper = new Swiper(".heroslider", {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
-            768: {
-                slidesPerView: 3,
+            pagination: {
+                el: ".swiper-pagination",
             },
-            576: {
-                slidesPerView: 2,
-            },
+            breakpoints: {
+                1400: {
+                    slidesPerView: 4,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+                576: {
+                    slidesPerView: 2,
+                },
 
-        },
-    });
+            },
+        });
+    }
 
+
+    $('.modlistsidebar>ul>li p').click(function () {
+        $(this).next('ul').slideToggle();
+        $(this).toggleClass('rotate');
+    })
 
 });
