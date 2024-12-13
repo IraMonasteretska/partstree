@@ -168,6 +168,77 @@
     }
 }
 
+
+
+
+.header__filter {
+    padding: 20px 0;
+    border-bottom: 1px solid #EAEAEA;
+
+    .header__filter-search {
+        width: 100%;
+        border-radius: 30px;
+        background: #51801A;
+        transition: 0.3s;
+        border: none;
+        outline: none;
+        padding: 0;
+        height: 41px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+
+        &:hover {
+            background: rgb(107, 169, 36);
+        }
+    }
+
+    .select2 {
+        width: 100% !important;
+    }
+
+    .select2-container--default .select2-selection--single {
+        border: none;
+        background: #F4F4F4;
+        border-radius: 10px;
+        height: 47px;
+    }
+
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        line-height: 47px;
+        color: #352C2B;
+        font-weight: 500;
+        font-size: 16px;
+        padding-left: 10px;
+        padding-right: 27px;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__placeholder {
+        color: #352C2B;
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        b {
+            display: none;
+        }
+
+        width: 16px;
+        height: 16px;
+        background: url('../img/home/select-arrow.svg') no-repeat center / 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 11px;
+    }
+}
+
+
+
+
 @media(max-width:1599.8px) {
 
     .maindescription h1 {
@@ -265,6 +336,10 @@
     .collagewrap {
         margin-top: 40px;
     }
+
+    .header__filter .header__filter-search {
+        margin-top: 15px;
+    }
 }
 
 @media(max-width:575.8px) {
@@ -296,7 +371,13 @@
         height: 180px;
     }
 
+    .header__filter .header__select {
+        margin-bottom: 10px;
+    }
 
+    .header__filter .header__filter-search {
+        margin-top: 5px;
+    }
 
 }
 
