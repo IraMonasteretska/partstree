@@ -308,12 +308,16 @@ header.header {
 
 }
 
+.header__cart .header__cartprice {
+    padding-right: 10px;
+}
+
 .header__cart {
     display: inline-flex;
     align-items: center;
-    max-width: 160px;
+    max-width: 140px;
     width: 100%;
-    margin-right: 30px;
+    margin-right: 0px;
 
     .header__cartimg {
         width: 100%;
@@ -407,6 +411,14 @@ header.header {
 
 .mobsearchopen {
     display: none;
+}
+
+.header__topsect {
+    .col-xl-4 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 }
 
 @media(max-width:1199.8px) {
@@ -724,9 +736,51 @@ header.header {
     }
 }
 
+.header__contus {
+    width: 120px;
+    border-radius: 30px;
+    background: #51801A;
+    transition: 0.3s;
+    outline: none;
+    height: 41px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+        background: rgb(107, 169, 36);
+        color: #fff;
+    }
+}
+
+.header__cart .header__cartprice p{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@media(max-width:1440.8px) {
+    .header__searchbox {
+        padding-right: 10px;
+    }
+}
+
 @media(max-width:1399.8px) {
     .header__bottsect .container>ul>li>a {
         padding: 15px 30px;
+    }
+
+    .header__cart .header__cartprice {
+        display: none;
+    }
+
+  .header__cart {
+        max-width: 44px;
+        vertical-align: middle;
     }
 }
 
@@ -738,17 +792,34 @@ header.header {
     .header__bottsect ul li .dd-list {
         width: 900px;
     }
+
+    .header__acc .header__accdescr {
+        display: none;
+    }
+
+    .header__acc {
+        max-width: 44px;
+        vertical-align: middle;
+    }
+
+    .header__topsect .col-xl-4 {
+        justify-content: flex-end;
+    }
+
+    .header__contus {
+        margin-right: 15px;
+    }
 }
 
 @media(max-width:991.8px) {
 
-    .header__acc  {
+    .header__acc {
         margin-right: 15px;
     }
 
     .header__bottsect {
-        // display: none;
-        position: fixed;
+        display: none;
+        // position: fixed;
         left: 0;
         background: #fff;
         width: 100%;
@@ -797,7 +868,7 @@ header.header {
                 border-radius: 100px;
                 position: absolute;
                 display: block;
-                background: rgb(81,128,26);
+                background: rgb(81, 128, 26);
                 right: 0;
 
             }
@@ -827,7 +898,7 @@ header.header {
 
                 &:before {
                     content: "";
-                    background: rgb(81,128,26);
+                    background: rgb(81, 128, 26);
                     width: 100%;
                     height: 2px;
                     border-radius: 100px;
@@ -900,34 +971,42 @@ header.header {
 
         ul {
             margin-bottom: 20px;
-            
+
             .title {
                 font-weight: 500;
             }
         }
     }
-    
+
     .header__bottsect ul li .dd-list ul li {
         margin-bottom: 10px;
     }
 
-    .header__bottsect  {
+    .header__bottsect {
         overflow: auto;
     }
 
     .header__bottsect ul li .dd-list ul {
         max-width: 100%;
     }
+    .searchboxmob {
+        top: 240px;
+    }
+
+
 }
 
 @media(max-width:575.8px) {
+
     .mobsearchopen,
-    .header__acc, .header__cart {
+    .header__acc,
+    .header__cart {
         width: 38px;
         height: 38px;
     }
 
-    .header__acc .header__accimg, .header__cart .header__cartimg {
+    .header__acc .header__accimg,
+    .header__cart .header__cartimg {
         max-width: 38px;
         flex: 0 0 38px;
         height: 38px;
@@ -967,6 +1046,27 @@ header.header {
 
     .header__bottsect {
         height: calc(100vh - 80px);
+    }
+
+    .header__contus {
+        // display: none;
+        width: 100%;
+        height: 36px;
+        font-size: 12px;
+        margin: 0;
+        margin-bottom: 5px;
+    }
+
+    .header__topsect .col-xl-4 {
+        flex-wrap: wrap;
+    }
+
+    .searchboxmob {
+        top: 100px;
+    }
+
+    .header__topsect {
+        padding: 10px 0;
     }
 
 }
@@ -1018,6 +1118,7 @@ header.header {
     .toplineinfo {
         padding: 0 15px;
     }
+
     .toplineinfo p {
         width: 100%;
         max-width: 100%;
