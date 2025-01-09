@@ -362,4 +362,118 @@ $(document).ready(function () {
         $(this).toggleClass('rotate');
     })
 
+
+
+    // main - show selects
+    document.addEventListener("DOMContentLoaded", function () {
+        const selects = document.querySelectorAll(".selectfld select");
+        const submitButton = document.getElementById("mainstepbtn");
+    
+        function updateVisibility() {
+            selects.forEach((select, index) => {
+                const parentDiv = select.closest(".selectfld");
+    
+                if (index > 0) {
+                    const previousSelect = selects[index - 1];
+                    if (previousSelect.value) {
+                        parentDiv.classList.remove("hide");
+                    } else {
+                        parentDiv.classList.add("hide");
+                    }
+                }
+            });
+    
+            const allSelected = Array.from(selects).every(select => select.value);
+            if (allSelected) {
+                submitButton.classList.remove("disabled");
+                submitButton.removeAttribute("disabled");
+            } else {
+                submitButton.classList.add("disabled");
+                submitButton.setAttribute("disabled", "true");
+            }
+        }
+    
+        selects.forEach(select => {
+            select.addEventListener("change", updateVisibility);
+        });
+    
+        updateVisibility();
+    });
+    
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const selects = document.querySelectorAll(".selectfld select");
+    const submitButton = document.getElementById("mainstepbtn");
+
+    function updateVisibility() {
+        selects.forEach((select, index) => {
+            const parentDiv = select.closest(".selectfld");
+
+            if (index > 0) {
+                const previousSelect = selects[index - 1];
+                if ($(previousSelect).val()) {
+                    parentDiv.classList.remove("hide");
+                } else {
+                    parentDiv.classList.add("hide");
+                    if ($(select).val()) {
+                        $(select).val(null).trigger("change", { skipUpdate: true });
+                    }
+                }
+            }
+        });
+
+        const allSelected = Array.from(selects).every(select => $(select).val());
+        if (allSelected) {
+            submitButton.classList.remove("disabled");
+            submitButton.removeAttribute("disabled");
+        } else {
+            submitButton.classList.add("disabled");
+            submitButton.setAttribute("disabled", "true");
+        }
+    }
+
+    $(selects).each(function () {
+        $(this).select2({
+            placeholder: $(this).data("placeholder"), 
+            allowClear: true,
+        }).on("change", function (e, data) {
+            if (data && data.skipUpdate) return; 
+            updateVisibility(); 
+        });
+    });
+
+    updateVisibility();
 });
+
+
+
+
+// show selects
+$('.selectfld select').change(function () {
+    $(this).parents('.selectfld').next('.selectfld').removeClass('hide');
+
+    let allSelected = true;
+    $('.selectfld select').each(function () {
+        if (!$(this).val()) {
+            allSelected = false;
+        }
+    });
+
+    const $button = $('#mainstepbtn');
+    if (allSelected) {
+        $button.removeClass('disabled').prop('disabled', false);
+    } else {
+        $button.addClass('disabled').prop('disabled', true);
+    }
+});
+
+
+
+
+
+});
+
+

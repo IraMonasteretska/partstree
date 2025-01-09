@@ -16,7 +16,7 @@ header.header {
 
 .header__searchbox {
     display: flex;
-    padding-right: 65px;
+    padding-right: 30px;
     border-radius: 38px;
 
     .headertogglebtns {
@@ -737,18 +737,12 @@ header.header {
 }
 
 .header__contus {
-    width: 120px;
-    border-radius: 30px;
-    background: #51801A;
     transition: 0.3s;
     outline: none;
-    height: 41px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
+    color: #51801A;
+
+    font-size: 16px;
+    font-weight: 700;
     text-decoration: none;
 
     &:hover {
