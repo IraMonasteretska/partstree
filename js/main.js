@@ -368,11 +368,11 @@ $(document).ready(function () {
     document.addEventListener("DOMContentLoaded", function () {
         const selects = document.querySelectorAll(".selectfld select");
         const submitButton = document.getElementById("mainstepbtn");
-    
+
         function updateVisibility() {
             selects.forEach((select, index) => {
                 const parentDiv = select.closest(".selectfld");
-    
+
                 if (index > 0) {
                     const previousSelect = selects[index - 1];
                     if (previousSelect.value) {
@@ -382,7 +382,7 @@ $(document).ready(function () {
                     }
                 }
             });
-    
+
             const allSelected = Array.from(selects).every(select => select.value);
             if (allSelected) {
                 submitButton.classList.remove("disabled");
@@ -392,86 +392,123 @@ $(document).ready(function () {
                 submitButton.setAttribute("disabled", "true");
             }
         }
-    
+
         selects.forEach(select => {
             select.addEventListener("change", updateVisibility);
         });
-    
+
         updateVisibility();
     });
-    
 
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    const selects = document.querySelectorAll(".selectfld select");
-    const submitButton = document.getElementById("mainstepbtn");
 
-    function updateVisibility() {
-        selects.forEach((select, index) => {
-            const parentDiv = select.closest(".selectfld");
+    document.addEventListener("DOMContentLoaded", function () {
+        const selects = document.querySelectorAll(".selectfld select");
+        const submitButton = document.getElementById("mainstepbtn");
 
-            if (index > 0) {
-                const previousSelect = selects[index - 1];
-                if ($(previousSelect).val()) {
-                    parentDiv.classList.remove("hide");
-                } else {
-                    parentDiv.classList.add("hide");
-                    if ($(select).val()) {
-                        $(select).val(null).trigger("change", { skipUpdate: true });
+        function updateVisibility() {
+            selects.forEach((select, index) => {
+                const parentDiv = select.closest(".selectfld");
+
+                if (index > 0) {
+                    const previousSelect = selects[index - 1];
+                    if ($(previousSelect).val()) {
+                        parentDiv.classList.remove("hide");
+                    } else {
+                        parentDiv.classList.add("hide");
+                        if ($(select).val()) {
+                            $(select).val(null).trigger("change", { skipUpdate: true });
+                        }
                     }
                 }
+            });
+
+            const allSelected = Array.from(selects).every(select => $(select).val());
+            if (allSelected) {
+                submitButton.classList.remove("disabled");
+                submitButton.removeAttribute("disabled");
+            } else {
+                submitButton.classList.add("disabled");
+                submitButton.setAttribute("disabled", "true");
+            }
+        }
+
+        $(selects).each(function () {
+            $(this).select2({
+                placeholder: $(this).data("placeholder"),
+                allowClear: true,
+            }).on("change", function (e, data) {
+                if (data && data.skipUpdate) return;
+                updateVisibility();
+            });
+        });
+
+        updateVisibility();
+    });
+
+
+
+
+    // show selects
+    $('.selectfld select').change(function () {
+        $(this).parents('.selectfld').next('.selectfld').removeClass('hide');
+
+        let allSelected = true;
+        $('.selectfld select').each(function () {
+            if (!$(this).val()) {
+                allSelected = false;
             }
         });
 
-        const allSelected = Array.from(selects).every(select => $(select).val());
+        const $button = $('#mainstepbtn');
         if (allSelected) {
-            submitButton.classList.remove("disabled");
-            submitButton.removeAttribute("disabled");
+            $button.removeClass('disabled').prop('disabled', false);
         } else {
-            submitButton.classList.add("disabled");
-            submitButton.setAttribute("disabled", "true");
+            $button.addClass('disabled').prop('disabled', true);
         }
-    }
+    });
 
-    $(selects).each(function () {
-        $(this).select2({
-            placeholder: $(this).data("placeholder"), 
-            allowClear: true,
-        }).on("change", function (e, data) {
-            if (data && data.skipUpdate) return; 
-            updateVisibility(); 
+
+
+    // model list gallery 
+    const mainImage = document.querySelector('.modgall-mainimg .imgwrap img');
+    const sideImages = document.querySelectorAll('.modgall-sideimgs .imgwrap img');
+
+    sideImages.forEach(img => {
+        img.addEventListener('mouseenter', () => {
+            mainImage.src = img.src;
+        });
+
+        img.addEventListener('click', () => {
+            mainImage.src = img.src;
         });
     });
-
-    updateVisibility();
-});
-
-
-
-
-// show selects
-$('.selectfld select').change(function () {
-    $(this).parents('.selectfld').next('.selectfld').removeClass('hide');
-
-    let allSelected = true;
-    $('.selectfld select').each(function () {
-        if (!$(this).val()) {
-            allSelected = false;
-        }
+  
+    
+    const mainImageModal = document.querySelector('.catlistpopup__leftblock .imgwrap img');
+    const sideImagesModal = document.querySelectorAll('.prodpicgroup .prodpicgroup__img img');
+    
+    sideImagesModal.forEach(img => {
+        img.addEventListener('click', () => {
+            mainImageModal.style.opacity = '0';
+    
+            setTimeout(() => {
+                mainImageModal.src = img.src;
+    
+                mainImageModal.style.opacity = '1';
+            }, 300); 
+    
+            sideImagesModal.forEach(otherImg => {
+                otherImg.parentElement.classList.remove('active');
+            });
+    
+            img.parentElement.classList.add('active');
+        });
     });
-
-    const $button = $('#mainstepbtn');
-    if (allSelected) {
-        $button.removeClass('disabled').prop('disabled', false);
-    } else {
-        $button.addClass('disabled').prop('disabled', true);
-    }
-});
-
-
-
+    
+   
 
 
 });
