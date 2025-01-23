@@ -193,63 +193,67 @@ $(document).ready(function () {
             pointY = (pointY - zoom.clientHeight / 2) / 1.2 + zoom.clientHeight / 2;
             setTransform();
         });
+    }
 
-        // Function to handle circle click/tap
-        function handleCircleClick(event) {
-            const circle = event.target.closest('.circlesch');
-            if (!circle) return;
+    // Function to handle circle click/tap
+    function handleCircleClick(event) {
+        const circle = event.target.closest('.circlesch');
+        if (!circle) return;
 
-            const point = circle.getAttribute('data-point');
-            const modal = document.querySelector(`.schmodal[data-modal="${point}"]`);
-            if (modal) {
-                if (modal.style.display === 'block') {
-                    modal.style.display = 'none';
-                } else {
-                    // Hide other modals
-                    document.querySelectorAll('.schmodal').forEach(m => {
-                        m.style.display = 'none';
-                    });
+        const point = circle.getAttribute('data-point');
+        const modal = document.querySelector(`.schmodal[data-modal="${point}"]`);
+        if (modal) {
+            if (modal.style.display === 'block') {
+                modal.style.display = 'none';
+            } else {
+                // Hide other modals
+                document.querySelectorAll('.schmodal').forEach(m => {
+                    m.style.display = 'none';
+                });
 
-                    const circleRect = circle.getBoundingClientRect();
-                    const zoomRect = document.getElementById('zoom').getBoundingClientRect();
-                    const modalRect = modal.getBoundingClientRect();
+                const circleRect = circle.getBoundingClientRect();
+                const zoomRect = document.getElementById('zoom').getBoundingClientRect();
+                const modalRect = modal.getBoundingClientRect();
 
-                    const leftPosition = circleRect.left - zoomRect.left + (circleRect.width / 2) - (modalRect.width / 2);
-                    const topPosition = circleRect.top - zoomRect.top + circleRect.height;
+                const leftPosition = circleRect.left - zoomRect.left + (circleRect.width / 2) - (modalRect.width / 2);
+                const topPosition = circleRect.top - zoomRect.top + circleRect.height;
 
-                    modal.style.left = `${leftPosition}px`;
-                    modal.style.top = `${topPosition}px`;
-                    modal.style.display = 'block';
-                }
+                modal.style.left = `${leftPosition}px`;
+                modal.style.top = `${topPosition}px`;
+                modal.style.display = 'block';
             }
         }
-
-        // Add click and touch events to circles
-        const circles = document.querySelectorAll('.circlesch');
-        circles.forEach(circle => {
-            circle.addEventListener('click', handleCircleClick);
-            circle.addEventListener('touchstart', handleCircleClick);
-        });
-
-        // Close modals when clicking outside
-        document.addEventListener('click', function (event) {
-            if (!event.target.classList.contains('circlesch') && !event.target.closest('.schmodal')) {
-                const modals = document.querySelectorAll('.schmodal');
-                modals.forEach(modal => {
-                    modal.style.display = 'none';
-                });
-            }
-        });
-
-        document.addEventListener('touchstart', function (event) {
-            if (!event.target.classList.contains('circlesch') && !event.target.closest('.schmodal')) {
-                const modals = document.querySelectorAll('.schmodal');
-                modals.forEach(modal => {
-                    modal.style.display = 'none';
-                });
-            }
-        });
     }
+
+    // Add click and touch events to circles
+    const circles = document.querySelectorAll('.circlesch');
+    circles.forEach(circle => {
+        circle.addEventListener('click', handleCircleClick);
+        // if ($(window).width() > 1024) {
+        //     circle.addEventListener('touchstart', handleCircleClick);
+        // }
+        
+    });
+
+    // Close modals when clicking outside
+    document.addEventListener('click', function (event) {
+        if (!event.target.classList.contains('circlesch') && !event.target.closest('.schmodal')) {
+            const modals = document.querySelectorAll('.schmodal');
+            modals.forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+    });
+
+    document.addEventListener('touchstart', function (event) {
+        if (!event.target.classList.contains('circlesch') && !event.target.closest('.schmodal')) {
+            const modals = document.querySelectorAll('.schmodal');
+            modals.forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+    });
+
 
     // ---------------------------------------------------
 
@@ -365,98 +369,19 @@ $(document).ready(function () {
 
 
     // main - show selects
-    document.addEventListener("DOMContentLoaded", function () {
-        const selects = document.querySelectorAll(".selectfld select");
-        const submitButton = document.getElementById("mainstepbtn");
-
-        function updateVisibility() {
-            selects.forEach((select, index) => {
-                const parentDiv = select.closest(".selectfld");
-
-                if (index > 0) {
-                    const previousSelect = selects[index - 1];
-                    if (previousSelect.value) {
-                        parentDiv.classList.remove("hide");
-                    } else {
-                        parentDiv.classList.add("hide");
-                    }
-                }
-            });
-
-            const allSelected = Array.from(selects).every(select => select.value);
-            if (allSelected) {
-                submitButton.classList.remove("disabled");
-                submitButton.removeAttribute("disabled");
-            } else {
-                submitButton.classList.add("disabled");
-                submitButton.setAttribute("disabled", "true");
-            }
-        }
-
-        selects.forEach(select => {
-            select.addEventListener("change", updateVisibility);
-        });
-
-        updateVisibility();
-    });
-
-
-
-
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const selects = document.querySelectorAll(".selectfld select");
-        const submitButton = document.getElementById("mainstepbtn");
-
-        function updateVisibility() {
-            selects.forEach((select, index) => {
-                const parentDiv = select.closest(".selectfld");
-
-                if (index > 0) {
-                    const previousSelect = selects[index - 1];
-                    if ($(previousSelect).val()) {
-                        parentDiv.classList.remove("hide");
-                    } else {
-                        parentDiv.classList.add("hide");
-                        if ($(select).val()) {
-                            $(select).val(null).trigger("change", { skipUpdate: true });
-                        }
-                    }
-                }
-            });
-
-            const allSelected = Array.from(selects).every(select => $(select).val());
-            if (allSelected) {
-                submitButton.classList.remove("disabled");
-                submitButton.removeAttribute("disabled");
-            } else {
-                submitButton.classList.add("disabled");
-                submitButton.setAttribute("disabled", "true");
-            }
-        }
-
-        $(selects).each(function () {
-            $(this).select2({
-                placeholder: $(this).data("placeholder"),
-                allowClear: true,
-            }).on("change", function (e, data) {
-                if (data && data.skipUpdate) return;
-                updateVisibility();
-            });
-        });
-
-        updateVisibility();
-    });
-
-
-
 
     // show selects
-    $('.selectfld select').change(function () {
-        $(this).parents('.selectfld').next('.selectfld').removeClass('hide');
+    $('.selectfld.v1:nth-child(1)').addClass('arr');
+
+    $(' .selectfld.v1 select').change(function () {
+        $(this).parents('.selectfld.v1').next('.selectfld.v1').removeClass('hide');
+
+
+        $(' .selectfld.v1').removeClass('arr');
+        $(this).parents(' .selectfld.v1').next('.selectfld.v1').addClass('arr');
 
         let allSelected = true;
-        $('.selectfld select').each(function () {
+        $(' .selectfld.v1 select').each(function () {
             if (!$(this).val()) {
                 allSelected = false;
             }
@@ -465,11 +390,13 @@ $(document).ready(function () {
         const $button = $('#mainstepbtn');
         if (allSelected) {
             $button.removeClass('disabled').prop('disabled', false);
+            $('.maindescription .maindescription__info').addClass('allselected');
         } else {
             $button.addClass('disabled').prop('disabled', true);
+            $('.maindescription .maindescription__info').removeClass('allselected')
         }
-    });
 
+    });
 
 
     // model list gallery 
@@ -485,30 +412,90 @@ $(document).ready(function () {
             mainImage.src = img.src;
         });
     });
-  
-    
+
+
     const mainImageModal = document.querySelector('.catlistpopup__leftblock .imgwrap img');
     const sideImagesModal = document.querySelectorAll('.prodpicgroup .prodpicgroup__img img');
-    
+
     sideImagesModal.forEach(img => {
         img.addEventListener('click', () => {
             mainImageModal.style.opacity = '0';
-    
+
             setTimeout(() => {
                 mainImageModal.src = img.src;
-    
+
                 mainImageModal.style.opacity = '1';
-            }, 300); 
-    
+            }, 300);
+
             sideImagesModal.forEach(otherImg => {
                 otherImg.parentElement.classList.remove('active');
             });
-    
+
             img.parentElement.classList.add('active');
         });
     });
-    
-   
+
+
+    // tooltip
+    const tooltipTriggerList = document.querySelectorAll('#mainstepbtn.disabled[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+    $("#mainstepbtn.disabled").on("show.bs.tooltip", function (e) {
+        if (!$(this).hasClass("disabled")) {
+            return false;
+        }
+    });
+
+
+
+
+    // MODAL make/modal
+    // modal select2
+    if ($('select').length) {
+        $('.modal .selectfld .styledselect').select2({
+            dropdownParent: $('#makemodel'),
+            // placeholder: "Select a state",
+            minimumResultsForSearch: Infinity,
+        });
+    }
+
+    $('.selectfld.v2:nth-child(1)').addClass('arr');
+
+    $(' .selectfld.v2 select').change(function () {
+        $(this).parents('.selectfld.v2').next('.selectfld.v2').removeClass('hide');
+
+
+        $(' .selectfld.v2').removeClass('arr');
+        $(this).parents(' .selectfld.v2').next('.selectfld.v2').addClass('arr');
+
+        let allSelected = true;
+        $(' .selectfld.v2 select').each(function () {
+            if (!$(this).val()) {
+                allSelected = false;
+            }
+        });
+
+        const $button1 = $('#modalstepbtn');
+        if (allSelected) {
+            $button1.removeClass('disabled').prop('disabled', false);
+            $('.modal .maindescription__info').addClass('allselected');
+        } else {
+            $button1.addClass('disabled').prop('disabled', true);
+            $('.modal .maindescription__info').removeClass('allselected')
+        }
+
+    });
+
+    const tooltipTriggerList1 = document.querySelectorAll('#modalstepbtn.disabled[data-bs-toggle="tooltip"]')
+    const tooltipList1 = [...tooltipTriggerList1].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    $("#modalstepbtn.disabled").on("show.bs.tooltip", function (e) {
+        if (!$(this).hasClass("disabled")) {
+            return false;
+        }
+    });
+
+ 
+
 
 
 });

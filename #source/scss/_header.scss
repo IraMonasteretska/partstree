@@ -373,7 +373,7 @@ header.header {
 .header__bottsect {
     border-bottom: 1px solid #EAEAEA;
 
-    .container {
+    .container .col-xl-9 {
         &>ul {
             list-style-type: none;
             padding: 0;
@@ -385,7 +385,7 @@ header.header {
 
                 &>a {
                     display: inline-block;
-                    padding: 15px 45px;
+                    padding: 15px 30px;
                     font-weight: 500;
                     line-height: 110%;
                     color: rgba(53, 44, 43);
@@ -756,6 +756,33 @@ header.header {
     white-space: nowrap;
 }
 
+.header__makemodelbtn {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: rgb(53, 44, 43);
+    font-weight: 500;
+
+    span {
+        display: inline-block;
+        margin-left: 10px;
+        color: #51801A;
+        font-weight: 600;
+        cursor: pointer;
+    }
+}
+
+
+
+
+@media(max-width:1499.8px) {
+    .header__bottsect .container .col-xl-9>ul>li>a {
+        padding: 15px 20px;
+    }
+}
+
 @media(max-width:1440.8px) {
     .header__searchbox {
         padding-right: 10px;
@@ -763,7 +790,7 @@ header.header {
 }
 
 @media(max-width:1399.8px) {
-    .header__bottsect .container>ul>li>a {
+    .header__bottsect .container .col-xl-9>ul>li>a {
         padding: 15px 30px;
     }
 
@@ -775,10 +802,15 @@ header.header {
         max-width: 44px;
         vertical-align: middle;
     }
+
+    .header__bottsect .container .col-xl-9>ul>li>a {
+        padding: 15px 10px;
+        font-size: 14px;
+    }
 }
 
 @media(max-width:1199.8px) {
-    .header__bottsect .container>ul>li>a {
+    .header__bottsect .container .col-xl-9>ul>li>a {
         padding: 15px 15px;
     }
 
@@ -801,6 +833,10 @@ header.header {
 
     .header__contus {
         margin-right: 15px;
+    }
+
+    .header__makemodelbtn {
+        justify-content: flex-start;
     }
 }
 
@@ -932,17 +968,17 @@ header.header {
 
     }
 
-    .header__bottsect .container>ul {
+    .header__bottsect .container .col-xl-9>ul {
         padding: 30px 0;
     }
 
-    .header__bottsect .container>ul>li {
+    .header__bottsect .container .col-xl-9>ul>li {
         display: block;
         margin: 0;
         margin-bottom: 5px;
     }
 
-    .header__bottsect .container>ul>li>a {
+    .header__bottsect .container .col-xl-9>ul>li>a {
         border-right: none;
         padding: 10px 0;
         font-weight: 600;
@@ -986,7 +1022,9 @@ header.header {
         top: 240px;
     }
 
-
+    .header__bottsect {
+        padding-bottom: 60px;
+    }
 }
 
 @media(max-width:575.8px) {
@@ -1020,7 +1058,7 @@ header.header {
         margin-right: 10px;
     }
 
-    .header__bottsect .container>ul>li>a {
+    .header__bottsect .container .col-xl-9>ul>li>a {
         font-size: 17px;
         margin-bottom: 5px;
     }

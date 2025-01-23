@@ -580,7 +580,7 @@
 
 .selectfld {
     margin-bottom: 8px;
-    
+
     &.hide {
         display: none;
     }
@@ -606,8 +606,12 @@
     }
 
     &.disabled {
-        background: #C9C9C9;
-        cursor: default;
+        // background: #C9C9C9;
+        cursor: no-drop;
+
+        &:hover {
+            background: #51801A;
+        }
     }
 }
 
@@ -619,6 +623,91 @@
     margin: 0;
 }
 
+// 23.01
+.selectfld {
+    position: relative;
+
+    &::after {
+        display: none;
+    }
+}
+
+.selectfld.arr {
+
+
+    &::after {
+        content: '';
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background: url('../img/new/right-arrow.png') no-repeat center / 100%;
+        position: absolute;
+        left: -45px;
+        top: 12px;
+    }
+}
+
+.makemodel-modal {
+    .closemodal {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        background: transparent;
+        border: none;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .modal-content {
+        border: none;
+    }
+
+    .makemodel-modal__wrapper {
+        background: #fff;
+        padding: 70px 40px 40px 40px;
+        border-radius: 8px;
+    }
+
+    .modal-dialog {
+        max-width: 700px;
+    }
+
+    .maindescription__info {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+
+}
+
+.maindescription__info.allselected {
+    .selectfld.arr:after {
+        display: none !important;
+    }
+}
+
+.makemodel-modal__title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: rgb(53, 44, 43);
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.makemodel-modal__subtitle {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #51801A;
+    margin-bottom: 20px;
+}
+
 
 
 @media(max-width:1599.8px) {
@@ -626,6 +715,8 @@
         height: 120px;
     }
 }
+
+@media(max-width:1499.8px) {}
 
 @media(max-width:1399.8px) {
     .maindescription h1 {
@@ -670,10 +761,60 @@
     .maindescription h1 {
         font-size: 36px;
     }
+
+    // 23.01
+    .maindescription__info {
+        width: calc(100% - 50px);
+    }
+
+    .makemodel-modal .modal-dialog {
+        max-width: 500px;
+    }
 }
 
 @media(max-width:575.8px) {
     .maindescription h1 {
         font-size: 28px;
     }
+
+    // 23.01
+    .maindescription__info {
+        width: calc(100% - 70px);
+    }
+
+
+    .makemodel-modal .modal-dialog {
+        max-width: calc(100% - 30px);
+    }
+
+    .makemodel-modal .makemodel-modal__wrapper {
+        background: #fff;
+        padding: 60px 20px 20px 20px;
+        border-radius: 8px;
+    }
+
+    .makemodel-modal__title {
+        font-size: 20px;
+    }
+
+    .makemodel-modal__subtitle {
+        font-size: 18px;
+    }
+
+    .makemodel-modal .closemodal {
+        width: 32px;
+        height: 32px;
+    }
+
+    .makemodel-modal .maindescription__info {
+        width: 100%;
+        max-width: calc(100% - 40px);
+    }
+
+    .makemodel-modal .selectfld.arr:after {
+        width: 22px;
+        height: 22px;
+        left: -30px;
+    }
+
 }
