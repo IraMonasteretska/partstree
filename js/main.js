@@ -494,7 +494,11 @@ $(document).ready(function () {
         }
     });
 
- 
+    $('.shoallinfo').click(function () {
+        $(this).parents('.schmodal-wrapper').toggleClass('additional_schmodal')
+        $(this).toggleClass('rotate');
+    })
+
 
 
 
