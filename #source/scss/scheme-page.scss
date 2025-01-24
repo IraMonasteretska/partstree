@@ -370,12 +370,13 @@ div#zoom>img {
     margin-bottom: 10px;
     background: #fff;
     overflow: hidden;
+    position: relative;
 
     &:last-child {
         margin-bottom: 0;
     }
 
-    &.schmodal__arr.additional_schmodal {
+    &.closest {
         .schemebox__right {
             padding-bottom: 10px;
             padding-right: 50px;
@@ -383,12 +384,10 @@ div#zoom>img {
 
     }
 
-    &.schmodal__arr {
         .schemebox__right {
             padding-top: 10px;
             padding-bottom: 50px;
         }
-    }
 }
 
 .schmodal {
@@ -475,13 +474,16 @@ div#zoom>img {
         background: transparent;
         width: 32px;
         height: 32px;
-
-        &.rotate {
-            transform: rotate(-180deg);
-        }
+        transform: rotate(-180deg);
+       
     }
 
-    .additional_schmodal {
+
+
+    .closest {
+        .shoallinfo {
+            transform: rotate(0);
+        }
 
         .stocktext,
         .botinf,
@@ -621,14 +623,14 @@ div#zoom>img {
         padding-bottom: 80px;
     }
 
-    .schmodal .schmodal-wrapper.schmodal__arr.additional_schmodal {
+    .schmodal .schmodal-wrapper.closest {
         .shoallinfo {
             bottom: 10px;
             right: 10px;
         }
     }
 
-    .schmodal .schmodal-wrapper.schmodal__arr {
+    .schmodal .schmodal-wrapper {
         .shoallinfo {
             bottom: 15px;
             right: 10px;

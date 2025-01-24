@@ -18,7 +18,6 @@ $(document).ready(function () {
 
     $('.showall').click(function () {
         $(this).parents('.filterbox').toggleClass('active');
-        $(this).find('span').toggle();
     });
 
     $('.filterbox .title').click(function () {
@@ -28,7 +27,6 @@ $(document).ready(function () {
     // brands
     $('.brandslist_more').click(function () {
         $(this).toggleClass('active');
-        $(this).find('span').toggle();
         $(this).prev('.brandslist').toggleClass('open');
     });
 
@@ -66,7 +64,6 @@ $(document).ready(function () {
 
     //   +-
     $('.minus').click(function () {
-        var $input = $(this).parent().find('input');
         var count = parseInt($input.val()) - 1;
         count = count < 0 ? 0 : count;
         $input.val(count);
@@ -74,7 +71,6 @@ $(document).ready(function () {
         return false;
     });
     $('.plus').click(function () {
-        var $input = $(this).parent().find('input');
         $input.val(parseInt($input.val()) + 1);
         $input.change();
         return false;
@@ -492,14 +488,34 @@ $(document).ready(function () {
         }
     });
 
+
+    // $('.shoallinfo').click(function () {
+    //     $(this).parents('.schmodal-wrapper').toggleClass('closest')
+    //     $(this).toggleClass('rotate');
+    // })
+    // $('.shoallinfo').click(function () {
+    //     const currentWrapper = $(this).closest('.schmodal-wrapper');
+    
+    //     // Закриваємо всі блоки, додаючи їм клас "closest" і видаляючи "additional_schmodal"
+    //     $('.schmodal-wrapper').addClass('closest').removeClass('additional_schmodal');
+    
+    //     // Якщо поточний блок закритий, відкриваємо його
+    //     if (currentWrapper.hasClass('closest')) {
+    //         currentWrapper.removeClass('closest').addClass('additional_schmodal');
+    //     }
+    // });
+
     $('.shoallinfo').click(function () {
-        $(this).parents('.schmodal-wrapper').toggleClass('additional_schmodal')
-        $(this).toggleClass('rotate');
-    })
+        const currentWrapper = $(this).closest('.schmodal-wrapper');
+    
+        // Закриваємо всі інші блоки
+        $('.schmodal-wrapper').not(currentWrapper).addClass('closest').removeClass('additional_schmodal');
+    
+        // Тогл для поточного блоку
+        currentWrapper.toggleClass('closest additional_schmodal');
+    });
 
-
-
-
+   
 });
 
 
