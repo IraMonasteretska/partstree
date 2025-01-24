@@ -80,36 +80,33 @@ $(document).ready(function () {
         return false;
     });
 
-    if ($('.imgZoom').length) {
-        if ($(window).width() > 990) {
-            $(function () {
-                $('.imgZoom').mooZoom({
-                    zoom: {
-                        width: 200,
-                        height: 200,
-                        zIndex: 600
-                    },
-                    overlay: {
-                        // opacity: 0.65,
-                        zIndex: 500,
-                        // backgroundColor: '#000000',
-                        fade: true
-                    },
-                    detail: {
-                        zIndex: 600,
-                        margin: {
-                            top: 0,
-                            left: 10
-                        },
-                        fade: true
-                    },
-                    animationDuration: 1000,
+    // if ($('.imgZoom').length) {
+    //     if ($(window).width() > 990) {
+    //         $(function () {
+    //             $('.imgZoom').mooZoom({
+    //                 zoom: {
+    //                     width: 200,
+    //                     height: 200,
+    //                     zIndex: 600
+    //                 },
+    //                 overlay: {
+    //                     zIndex: 500,
+    //                     fade: true
+    //                 },
+    //                 detail: {
+    //                     zIndex: 600,
+    //                     margin: {
+    //                         top: 0,
+    //                         left: 10
+    //                     },
+    //                     fade: true
+    //                 },
+    //                 animationDuration: 1000,
 
-
-                });
-            });
-        }
-    }
+    //             });
+    //         });
+    //     }
+    // }
 
     if ($('.imgZoom').length) {
         // l
@@ -157,12 +154,12 @@ $(document).ready(function () {
         }
 
         // Touch events
-        zoom.ontouchstart = function (e) {
-            e.preventDefault();
-            var touch = e.touches[0];
-            start = { x: touch.clientX - pointX, y: touch.clientY - pointY };
-            panning = true;
-        }
+        // zoom.ontouchstart = function (e) {
+        //     e.preventDefault();
+        //     var touch = e.touches[0];
+        //     start = { x: touch.clientX - pointX, y: touch.clientY - pointY };
+        //     panning = true;
+        // }
 
         zoom.ontouchend = function (e) {
             panning = false;
@@ -215,11 +212,11 @@ $(document).ready(function () {
                 const zoomRect = document.getElementById('zoom').getBoundingClientRect();
                 const modalRect = modal.getBoundingClientRect();
 
-                const leftPosition = circleRect.left - zoomRect.left + (circleRect.width / 2) - (modalRect.width / 2);
-                const topPosition = circleRect.top - zoomRect.top + circleRect.height;
+                // const leftPosition = circleRect.left - zoomRect.left + (circleRect.width / 2) - (modalRect.width / 2);
+                // const topPosition = circleRect.top - zoomRect.top + circleRect.height;
 
-                modal.style.left = `${leftPosition}px`;
-                modal.style.top = `${topPosition}px`;
+                // modal.style.left = `${leftPosition}px`;
+                // modal.style.top = `${topPosition}px`;
                 modal.style.display = 'block';
             }
         }
@@ -232,6 +229,7 @@ $(document).ready(function () {
         // if ($(window).width() > 1024) {
         //     circle.addEventListener('touchstart', handleCircleClick);
         // }
+        
         
     });
 
@@ -269,8 +267,8 @@ $(document).ready(function () {
                 const circleRect = circle.getBoundingClientRect();
                 const zoomRect = document.getElementById('zoom').getBoundingClientRect();
 
-                modal.style.left = `${circleRect.left - zoomRect.left}px`;
-                modal.style.top = `${circleRect.top - zoomRect.top + circleRect.height}px`;
+                // modal.style.left = `${circleRect.left - zoomRect.left}px`;
+                // modal.style.top = `${circleRect.top - zoomRect.top + circleRect.height}px`;
                 modal.style.display = 'block';
             }
         });

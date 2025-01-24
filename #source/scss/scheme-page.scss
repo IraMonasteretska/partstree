@@ -522,6 +522,21 @@ div#zoom>img {
     }
 }
 
+
+.lbwrap .zoom_outer {
+    position: relative;
+}
+
+.schmodal,
+.schmodal.big  {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 40px;
+    transform: none;
+    width: calc(100% - 200px);
+}
+
 @media(max-width:1499.8px) {
     .zoom_outer {
         display: flex;
