@@ -9,6 +9,7 @@
     <!-- <link rel="icon" type="image/x-icon" href="img/favicon.png"> -->
     <link rel="stylesheet" href="css/lib/bootstrap.min.css">
     <link rel="stylesheet" href="css/lib/select2.css">
+    <link rel="stylesheet" href="css/lib/fancybox.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -228,8 +229,8 @@
                                 </h1>
                             </div>
                             <div class="col-xl-5 text-end">
-                                <div class="model-gallery">
-                                    <div class="modgall-mainimg" data-bs-toggle="modal" data-bs-target="#catlistpopup">
+                                <div class="model-gallery" data-bs-toggle="modal" data-bs-target="#catlistpopup">
+                                    <div class="modgall-mainimg">
                                         <div class="imgwrap">
                                             <img src="img/listmodel/img1.png" alt="img">
                                         </div>
@@ -559,8 +560,11 @@
                     <div class="catlistpopup-wrapper">
                         <div class="catlistpopup__leftblock">
                             <div class="imgwrap">
-                                <img src="img/listmodel/img3.png" alt="img">
+                                <a href="img/listmodel/big-img3.png" data-fancybox="gal1" data-caption="">
+                                    <img src="img/listmodel/img3.png" alt="img">
+                                </a>
                             </div>
+
                         </div>
                         <div class="catlistpopup__rightblock">
                             <p class="title">Von Duprin 98/99 Rim Panic</p>
@@ -680,6 +684,7 @@
     <script src="js/lib/popper.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
     <script src="js/lib/select2.js"></script>
+    <script src="js/lib/fancybox.js"></script>
     <script src="js/main.js"></script>
 
 </body>

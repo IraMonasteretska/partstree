@@ -225,8 +225,8 @@ $(document).ready(function () {
         // if ($(window).width() > 1024) {
         //     circle.addEventListener('touchstart', handleCircleClick);
         // }
-        
-        
+
+
     });
 
     // Close modals when clicking outside
@@ -394,40 +394,107 @@ $(document).ready(function () {
 
 
     // model list gallery 
-    const mainImage = document.querySelector('.modgall-mainimg .imgwrap img');
-    const sideImages = document.querySelectorAll('.modgall-sideimgs .imgwrap img');
+    // const mainImage = document.querySelector('.modgall-mainimg .imgwrap img');
+    // const sideImages = document.querySelectorAll('.modgall-sideimgs .imgwrap img');
 
-    sideImages.forEach(img => {
-        img.addEventListener('mouseenter', () => {
-            mainImage.src = img.src;
+    // sideImages.forEach(img => {
+    //     img.addEventListener('mouseenter', () => {
+    //         mainImage.src = img.src;
+    //     });
+
+    //     img.addEventListener('click', () => {
+    //         mainImage.src = img.src;
+    //     });
+    // });
+
+    if ($(window).width() > 990) {
+        const mainImage = document.querySelector('.modgall-mainimg .imgwrap img');
+        const sideImages = document.querySelectorAll('.modgall-sideimgs .imgwrap img');
+        const sideImagesContainer = document.querySelector('.modgall-sideimgs');
+
+        let defaultImageSrc = mainImage.src;
+
+        sideImages.forEach(img => {
+            img.addEventListener('mouseenter', () => {
+                mainImage.src = img.src;
+            });
+
+            // img.addEventListener('click', () => {
+            //     defaultImageSrc = img.src; 
+            //     mainImage.src = img.src;
+            // });
         });
 
-        img.addEventListener('click', () => {
-            mainImage.src = img.src;
-        });
-    });
 
+        sideImagesContainer.addEventListener('mouseleave', () => {
+            mainImage.src = defaultImageSrc;
+        });
+    }
+
+
+
+
+
+
+
+
+    // const mainImageModal = document.querySelector('.catlistpopup__leftblock .imgwrap img');
+    // const sideImagesModal = document.querySelectorAll('.prodpicgroup .prodpicgroup__img img');
+
+    // sideImagesModal.forEach(img => {
+    //     img.addEventListener('click', () => {
+    //         mainImageModal.style.opacity = '0';
+
+    //         setTimeout(() => {
+    //             mainImageModal.src = img.src;
+
+    //             mainImageModal.style.opacity = '1';
+    //         }, 300);
+
+    //         sideImagesModal.forEach(otherImg => {
+    //             otherImg.parentElement.classList.remove('active');
+    //         });
+
+    //         img.parentElement.classList.add('active');
+    //     });
+    // });
 
     const mainImageModal = document.querySelector('.catlistpopup__leftblock .imgwrap img');
+    const mainImageLink = document.querySelector('.catlistpopup__leftblock .imgwrap a'); // Отримуємо <a>
     const sideImagesModal = document.querySelectorAll('.prodpicgroup .prodpicgroup__img img');
-
+    
     sideImagesModal.forEach(img => {
         img.addEventListener('click', () => {
             mainImageModal.style.opacity = '0';
-
+    
             setTimeout(() => {
                 mainImageModal.src = img.src;
-
+                
+                // Додаємо "big-" перед назвою файлу
+                const imgSrcParts = img.src.split('/');
+                const fileName = imgSrcParts.pop(); // Отримуємо назву файлу
+                const bigFileName = 'big-' + fileName; // Додаємо префікс "big-"
+                const bigImageSrc = imgSrcParts.join('/') + '/' + bigFileName; // Формуємо новий шлях
+    
+                mainImageLink.href = bigImageSrc; // Оновлюємо href для Fancybox
                 mainImageModal.style.opacity = '1';
             }, 300);
-
+    
             sideImagesModal.forEach(otherImg => {
                 otherImg.parentElement.classList.remove('active');
             });
-
+    
             img.parentElement.classList.add('active');
         });
     });
+    
+
+
+
+
+
+
+
 
 
     // tooltip
@@ -489,33 +556,23 @@ $(document).ready(function () {
     });
 
 
-    // $('.shoallinfo').click(function () {
-    //     $(this).parents('.schmodal-wrapper').toggleClass('closest')
-    //     $(this).toggleClass('rotate');
-    // })
-    // $('.shoallinfo').click(function () {
-    //     const currentWrapper = $(this).closest('.schmodal-wrapper');
-    
-    //     // Закриваємо всі блоки, додаючи їм клас "closest" і видаляючи "additional_schmodal"
-    //     $('.schmodal-wrapper').addClass('closest').removeClass('additional_schmodal');
-    
-    //     // Якщо поточний блок закритий, відкриваємо його
-    //     if (currentWrapper.hasClass('closest')) {
-    //         currentWrapper.removeClass('closest').addClass('additional_schmodal');
-    //     }
-    // });
-
     $('.shoallinfo').click(function () {
         const currentWrapper = $(this).closest('.schmodal-wrapper');
-    
+
         // Закриваємо всі інші блоки
         $('.schmodal-wrapper').not(currentWrapper).addClass('closest').removeClass('additional_schmodal');
-    
+
         // Тогл для поточного блоку
         currentWrapper.toggleClass('closest additional_schmodal');
     });
 
-   
+    // fancybox
+    Fancybox.bind("[data-fancybox]", {
+        // Your custom options
+    });
+
+    
+
 });
 
 
