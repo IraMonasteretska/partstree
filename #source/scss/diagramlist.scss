@@ -466,7 +466,13 @@
     z-index: 1060;
 }
 
-
+.diagcol-title {
+    color: #141414;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 130%;
+    margin-bottom: 16px;
+}
 
 
 
@@ -597,6 +603,10 @@
         flex: 0 0 50%;
     }
 
+    .diagcol-title {
+        font-size: 18px;
+    }
+
 }
 
 @media(max-width:991.8px) {
@@ -657,7 +667,9 @@
         }
     }
 
-
+    .diagcol-title {
+        font-size: 24px;
+    }
 
 }
 
@@ -688,6 +700,10 @@
 
     .catlistpopup__leftblock {
         margin-bottom: 20px;
+    }
+
+    .diagcol-title {
+        font-size: 21px;
     }
 
 }
@@ -787,5 +803,9 @@
 
     .catlistpopup__leftblock .imgwrap {
         height: 200px;
+    }
+
+    .diagcol-title {
+        font-size: 18px;
     }
 }

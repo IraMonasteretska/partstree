@@ -764,6 +764,14 @@ header.header {
     justify-content: flex-end;
     color: rgb(53, 44, 43);
     font-weight: 500;
+    position: relative;
+
+    img {
+        width: 16px;
+        margin-right: 8px;
+        margin-top: -1px;
+        vertical-align: middle;
+    }
 
     span {
         display: inline-block;
@@ -1025,6 +1033,12 @@ header.header {
     .header__bottsect {
         padding-bottom: 60px;
     }
+
+    .searchboxmob {
+        top: 96px;
+    }
+
+
 }
 
 @media(max-width:575.8px) {
