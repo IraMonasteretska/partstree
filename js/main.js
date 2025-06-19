@@ -18,10 +18,12 @@ $(document).ready(function () {
 
     $('.showall').click(function () {
         $(this).parents('.filterbox').toggleClass('active');
+        $(this).find('span').toggle();
     });
 
     $('.filterbox .title').click(function () {
         $(this).next('.filterwrapbox').slideToggle();
+        $(this).toggleClass('open');
     });
 
     // brands
@@ -64,15 +66,16 @@ $(document).ready(function () {
 
     //   +-
     $('.minus').click(function () {
+        var $input = $(this).siblings('input');
         var count = parseInt($input.val()) - 1;
         count = count < 0 ? 0 : count;
-        $input.val(count);
-        $input.change();
+        $input.val(count).change();
         return false;
     });
+
     $('.plus').click(function () {
-        $input.val(parseInt($input.val()) + 1);
-        $input.change();
+        var $input = $(this).siblings('input');
+        $input.val(parseInt($input.val()) + 1).change();
         return false;
     });
 
@@ -104,89 +107,89 @@ $(document).ready(function () {
     //     }
     // }
 
-    if ($('.imgZoom').length) {
-        // l
-        var scale = 1,
-            panning = false,
-            pointX = 0,
-            pointY = 0,
-            start = { x: 0, y: 0 },
-            zoom = document.getElementById("zoom");
+    // if ($('.imgZoom').length) {
+    //     // l
+    //     var scale = 1,
+    //         panning = false,
+    //         pointX = 0,
+    //         pointY = 0,
+    //         start = { x: 0, y: 0 },
+    //         zoom = document.getElementById("zoom");
 
-        function setTransform() {
-            zoom.style.transform = "translate(" + pointX + "px, " + pointY + "px) scale(" + scale + ")";
-        }
+    //     function setTransform() {
+    //         zoom.style.transform = "translate(" + pointX + "px, " + pointY + "px) scale(" + scale + ")";
+    //     }
 
-        zoom.onmousedown = function (e) {
-            e.preventDefault();
-            start = { x: e.clientX - pointX, y: e.clientY - pointY };
-            panning = true;
-        }
+    //     zoom.onmousedown = function (e) {
+    //         e.preventDefault();
+    //         start = { x: e.clientX - pointX, y: e.clientY - pointY };
+    //         panning = true;
+    //     }
 
-        zoom.onmouseup = function (e) {
-            panning = false;
-        }
+    //     zoom.onmouseup = function (e) {
+    //         panning = false;
+    //     }
 
-        zoom.onmousemove = function (e) {
-            e.preventDefault();
-            if (!panning) {
-                return;
-            }
-            pointX = (e.clientX - start.x);
-            pointY = (e.clientY - start.y);
-            setTransform();
-        }
+    //     zoom.onmousemove = function (e) {
+    //         e.preventDefault();
+    //         if (!panning) {
+    //             return;
+    //         }
+    //         pointX = (e.clientX - start.x);
+    //         pointY = (e.clientY - start.y);
+    //         setTransform();
+    //     }
 
-        zoom.onwheel = function (e) {
-            e.preventDefault();
-            var xs = (e.clientX - pointX) / scale,
-                ys = (e.clientY - pointY) / scale,
-                delta = (e.wheelDelta ? e.wheelDelta : -e.deltaY);
-            (delta > 0) ? (scale *= 1.2) : (scale /= 1.2);
-            pointX = e.clientX - xs * scale;
-            pointY = e.clientY - ys * scale;
+    //     zoom.onwheel = function (e) {
+    //         e.preventDefault();
+    //         var xs = (e.clientX - pointX) / scale,
+    //             ys = (e.clientY - pointY) / scale,
+    //             delta = (e.wheelDelta ? e.wheelDelta : -e.deltaY);
+    //         (delta > 0) ? (scale *= 1.2) : (scale /= 1.2);
+    //         pointX = e.clientX - xs * scale;
+    //         pointY = e.clientY - ys * scale;
 
-            setTransform();
-        }
+    //         setTransform();
+    //     }
 
-        // Touch events
-        // zoom.ontouchstart = function (e) {
-        //     e.preventDefault();
-        //     var touch = e.touches[0];
-        //     start = { x: touch.clientX - pointX, y: touch.clientY - pointY };
-        //     panning = true;
-        // }
+    //     // Touch events
+    //     // zoom.ontouchstart = function (e) {
+    //     //     e.preventDefault();
+    //     //     var touch = e.touches[0];
+    //     //     start = { x: touch.clientX - pointX, y: touch.clientY - pointY };
+    //     //     panning = true;
+    //     // }
 
-        zoom.ontouchend = function (e) {
-            panning = false;
-        }
+    //     zoom.ontouchend = function (e) {
+    //         panning = false;
+    //     }
 
-        zoom.ontouchmove = function (e) {
-            e.preventDefault();
-            if (!panning) {
-                return;
-            }
-            var touch = e.touches[0];
-            pointX = (touch.clientX - start.x);
-            pointY = (touch.clientY - start.y);
-            setTransform();
-        }
+    //     zoom.ontouchmove = function (e) {
+    //         e.preventDefault();
+    //         if (!panning) {
+    //             return;
+    //         }
+    //         var touch = e.touches[0];
+    //         pointX = (touch.clientX - start.x);
+    //         pointY = (touch.clientY - start.y);
+    //         setTransform();
+    //     }
 
-        // Zoom-in and Zoom-out buttons
-        document.getElementById("zoom-in").addEventListener("click", function () {
-            scale *= 1.2;
-            pointX = (pointX - zoom.clientWidth / 2) * 1.2 + zoom.clientWidth / 2;
-            pointY = (pointY - zoom.clientHeight / 2) * 1.2 + zoom.clientHeight / 2;
-            setTransform();
-        });
+    //     // Zoom-in and Zoom-out buttons
+    //     document.getElementById("zoom-in").addEventListener("click", function () {
+    //         scale *= 1.2;
+    //         pointX = (pointX - zoom.clientWidth / 2) * 1.2 + zoom.clientWidth / 2;
+    //         pointY = (pointY - zoom.clientHeight / 2) * 1.2 + zoom.clientHeight / 2;
+    //         setTransform();
+    //     });
 
-        document.getElementById("zoom-out").addEventListener("click", function () {
-            scale /= 1.2;
-            pointX = (pointX - zoom.clientWidth / 2) / 1.2 + zoom.clientWidth / 2;
-            pointY = (pointY - zoom.clientHeight / 2) / 1.2 + zoom.clientHeight / 2;
-            setTransform();
-        });
-    }
+    //     document.getElementById("zoom-out").addEventListener("click", function () {
+    //         scale /= 1.2;
+    //         pointX = (pointX - zoom.clientWidth / 2) / 1.2 + zoom.clientWidth / 2;
+    //         pointY = (pointY - zoom.clientHeight / 2) / 1.2 + zoom.clientHeight / 2;
+    //         setTransform();
+    //     });
+    // }
 
     // Function to handle circle click/tap
     function handleCircleClick(event) {
@@ -354,16 +357,6 @@ $(document).ready(function () {
         });
     }
 
-
-    $('.modlistsidebar>ul>li p').click(function () {
-        $(this).next('ul').slideToggle();
-        $(this).toggleClass('rotate');
-    })
-
-
-
-    // main - show selects
-
     // show selects
     $('.selectfld.v1:nth-child(1)').addClass('arr');
 
@@ -394,100 +387,37 @@ $(document).ready(function () {
 
 
     // model list gallery 
-    // const mainImage = document.querySelector('.modgall-mainimg .imgwrap img');
-    // const sideImages = document.querySelectorAll('.modgall-sideimgs .imgwrap img');
 
-    // sideImages.forEach(img => {
-    //     img.addEventListener('mouseenter', () => {
-    //         mainImage.src = img.src;
-    //     });
-
-    //     img.addEventListener('click', () => {
-    //         mainImage.src = img.src;
-    //     });
-    // });
-
-    if ($(window).width() > 990) {
-        const mainImage = document.querySelector('.modgall-mainimg .imgwrap img');
-        const sideImages = document.querySelectorAll('.modgall-sideimgs .imgwrap img');
-        const sideImagesContainer = document.querySelector('.modgall-sideimgs');
-
-        let defaultImageSrc = mainImage.src;
-
-        sideImages.forEach(img => {
-            img.addEventListener('mouseenter', () => {
-                mainImage.src = img.src;
-            });
-
-            // img.addEventListener('click', () => {
-            //     defaultImageSrc = img.src; 
-            //     mainImage.src = img.src;
-            // });
-        });
-
-
-        sideImagesContainer.addEventListener('mouseleave', () => {
-            mainImage.src = defaultImageSrc;
-        });
-    }
-
-
-
-
-
-
-
-
-    // const mainImageModal = document.querySelector('.catlistpopup__leftblock .imgwrap img');
-    // const sideImagesModal = document.querySelectorAll('.prodpicgroup .prodpicgroup__img img');
-
-    // sideImagesModal.forEach(img => {
-    //     img.addEventListener('click', () => {
-    //         mainImageModal.style.opacity = '0';
-
-    //         setTimeout(() => {
-    //             mainImageModal.src = img.src;
-
-    //             mainImageModal.style.opacity = '1';
-    //         }, 300);
-
-    //         sideImagesModal.forEach(otherImg => {
-    //             otherImg.parentElement.classList.remove('active');
-    //         });
-
-    //         img.parentElement.classList.add('active');
-    //     });
-    // });
 
     const mainImageModal = document.querySelector('.catlistpopup__leftblock .imgwrap img');
     const mainImageLink = document.querySelector('.catlistpopup__leftblock .imgwrap a'); // Отримуємо <a>
     const sideImagesModal = document.querySelectorAll('.prodpicgroup .prodpicgroup__img img');
-    
+
     sideImagesModal.forEach(img => {
         img.addEventListener('click', () => {
             mainImageModal.style.opacity = '0';
-    
+
             setTimeout(() => {
                 mainImageModal.src = img.src;
-                
+
                 // Додаємо "big-" перед назвою файлу
                 const imgSrcParts = img.src.split('/');
                 const fileName = imgSrcParts.pop(); // Отримуємо назву файлу
                 const bigFileName = 'big-' + fileName; // Додаємо префікс "big-"
                 const bigImageSrc = imgSrcParts.join('/') + '/' + bigFileName; // Формуємо новий шлях
-    
+
                 mainImageLink.href = bigImageSrc; // Оновлюємо href для Fancybox
                 mainImageModal.style.opacity = '1';
             }, 300);
-    
+
             sideImagesModal.forEach(otherImg => {
                 otherImg.parentElement.classList.remove('active');
             });
-    
+
             img.parentElement.classList.add('active');
         });
     });
-    
+
 
 
 
@@ -567,11 +497,26 @@ $(document).ready(function () {
     });
 
     // fancybox
-    Fancybox.bind("[data-fancybox]", {
-        // Your custom options
+    if ($('[data-fancybox]').length) {
+        Fancybox.bind("[data-fancybox]", {
+            // Your custom options
+        });
+    }
+
+    // category - clear filter
+    $('.clearall').click(function () {
+        $('.filterbox input[type="checkbox"]').prop('checked', false);
     });
 
-    
+    // model list - dropdowns
+    $('.modlistsidebar__header').click(function () {
+        $(this).toggleClass('open');
+        $(this).next('ul').slideToggle();
+    });
+    $('.modlistsidebar > ul > li > p').click(function () {
+        $(this).toggleClass('open');
+        $(this).next('ul').slideToggle();
+    });
 
 });
 
