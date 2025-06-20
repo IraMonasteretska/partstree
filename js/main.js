@@ -518,6 +518,15 @@ $(document).ready(function () {
         $(this).next('ul').slideToggle();
     });
 
+
+    // category checkbox dropdown
+    $('.filterwrapbox__ddarrow').click(function(){
+        $(this).toggleClass('open');
+        $(this).next('ul').toggle();
+    });
+
+
+
 });
 
 
