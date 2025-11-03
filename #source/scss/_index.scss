@@ -93,13 +93,8 @@
     }
 
     &:hover {
-        // background: rgb(81, 128, 26);
         border: 1px solid rgba(81, 128, 26, 1);
         box-shadow: 0 4px 13px rgba(81, 128, 26, 0.25);
-
-        img {
-            // filter: drop-shadow(2px 4px 6px #fff);
-        }
     }
 }
 
@@ -168,9 +163,6 @@
     }
 }
 
-
-
-
 .header__filter {
     padding: 20px 0;
     border-bottom: 1px solid #EAEAEA;
@@ -235,9 +227,6 @@
         right: 11px;
     }
 }
-
-
-
 
 @media(max-width:1599.8px) {
 
@@ -708,15 +697,11 @@
     margin-bottom: 20px;
 }
 
-
-
 @media(max-width:1599.8px) {
     .heroslider__box a .imgwrap {
         height: 120px;
     }
 }
-
-@media(max-width:1499.8px) {}
 
 @media(max-width:1399.8px) {
     .maindescription h1 {
@@ -818,3 +803,4 @@
     }
 
 }
+

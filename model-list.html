@@ -10,12 +10,52 @@
     <link rel="stylesheet" href="css/lib/bootstrap.min.css">
     <link rel="stylesheet" href="css/lib/select2.css">
     <link rel="stylesheet" href="css/lib/fancybox.css">
+     <link rel="stylesheet" href="css/lib/swiper.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="pagewrapper">
-        <header class="header">
+      <header class="header">
+            <div class="header__toprow">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-sm-3 hidemob">
+                            <p><img class="header__flag" src="img/new/flag.png" alt="usa">Trusted Since 2001</p>
+                        </div>
+                        <div class="col-xl-8 col-sm-6 col-9 text-center">
+                            <div class="swiper fliptext">
+                                <img class="fliptext__icon" src="img/new/ups.svg" alt="img">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <p>
+                                            Free shipping on all orders $300 and up
+                                        </p>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p>
+                                            Same Day Shipping
+                                        </p>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p>
+                                            Expedited delivery available
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-xl-2 col-sm-3 col-3 text-end">
+                            <a class="header__telnum" href="tel:8774714870">
+                                <img src="img/new/phone-icon.svg" alt="phone icon">
+                                <span>877-471-4870</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="header__topsect">
                 <div class="container">
                     <div class="row align-items-center">
@@ -76,6 +116,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="header__bottsect">
                 <div class="container">
                     <div class="row">
@@ -160,6 +201,7 @@
                     </div>
                 </div>
             </div>
+
         </header>
 
         <main class="main">
@@ -639,6 +681,7 @@
     <script src="js/lib/bootstrap.min.js"></script>
     <script src="js/lib/select2.js"></script>
     <script src="js/lib/fancybox.js"></script>
+    <script src="js/lib/swiper.js"></script>
     <script src="js/main.js"></script>
 
 </body>
