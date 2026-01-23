@@ -373,7 +373,7 @@ header.header {
 .header__bottsect {
     border-bottom: 1px solid #EAEAEA;
 
-    .container .col-xl-9 {
+    .container .navcolumn {
         &>ul {
             list-style-type: none;
             padding: 0;
@@ -768,25 +768,64 @@ header.header {
 
     img {
         width: 16px;
-        margin-right: 8px;
         margin-top: -1px;
         vertical-align: middle;
     }
 
     span {
         display: inline-block;
-        margin-left: 10px;
+        margin-left: 5px;
         color: #51801A;
         font-weight: 600;
         cursor: pointer;
+        background: #51801a0d;
+        height: 40px;
+        padding: 2px 10px;
+        border-radius: 5px;
+        border: 1px solid #51801A;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+    }
+
+    &:hover span {
+        color: rgb(107, 169, 36);
     }
 }
 
+// -
+.header__searchbox {
+    display: block;
+}
 
+.header__searchbox .header__search {
+    max-width: 100%;
+    flex: initial;
+
+    input {
+        border: 1px solid #51801A;
+    }
+}
+
+.greenlink {
+    color: #51801A;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+        color: rgb(107, 169, 36);
+    }
+}
+
+header .greenlink {
+    margin-right: 20px;
+}
 
 
 @media(max-width:1499.8px) {
-    .header__bottsect .container .col-xl-9>ul>li>a {
+    .header__bottsect .container .navcolumn>ul>li>a {
         padding: 15px 20px;
     }
 }
@@ -798,7 +837,7 @@ header.header {
 }
 
 @media(max-width:1399.8px) {
-    .header__bottsect .container .col-xl-9>ul>li>a {
+    .header__bottsect .container .navcolumn>ul>li>a {
         padding: 15px 30px;
     }
 
@@ -811,14 +850,24 @@ header.header {
         vertical-align: middle;
     }
 
-    .header__bottsect .container .col-xl-9>ul>li>a {
+    .header__bottsect .container .navcolumn>ul>li>a {
         padding: 15px 10px;
+        font-size: 14px;
+    }
+
+    // -
+    header .greenlink {
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+    .header__makemodelbtn span {
         font-size: 14px;
     }
 }
 
 @media(max-width:1199.8px) {
-    .header__bottsect .container .col-xl-9>ul>li>a {
+    .header__bottsect .container .navcolumn>ul>li>a {
         padding: 15px 15px;
     }
 
@@ -846,6 +895,21 @@ header.header {
     .header__makemodelbtn {
         justify-content: flex-start;
     }
+
+    // -
+
+    .header__bottsect {
+        padding-bottom: 10px;
+    }
+
+    .navcolumn {
+        margin-bottom: 5px;
+    }
+
+    // .header__bottsect .container .navcolumn>ul {
+    //     border-bottom: 1px solid #EAEAEA;
+    // }
+
 }
 
 @media(max-width:991.8px) {
@@ -976,17 +1040,17 @@ header.header {
 
     }
 
-    .header__bottsect .container .col-xl-9>ul {
+    .header__bottsect .container .navcolumn>ul {
         padding: 30px 0;
     }
 
-    .header__bottsect .container .col-xl-9>ul>li {
+    .header__bottsect .container .navcolumn>ul>li {
         display: block;
         margin: 0;
         margin-bottom: 5px;
     }
 
-    .header__bottsect .container .col-xl-9>ul>li>a {
+    .header__bottsect .container .navcolumn>ul>li>a {
         border-right: none;
         padding: 10px 0;
         font-weight: 600;
@@ -1039,6 +1103,18 @@ header.header {
         top: 96px;
     }
 
+    header .greenlink {
+        font-size: 16px;
+        margin-right: 20px;
+    }
+
+    .header__makemodelbtn span {
+        font-size: 16px;
+    }
+
+    .searchboxmob {
+        top: 136px;
+    }
 
 }
 
@@ -1073,7 +1149,7 @@ header.header {
         margin-right: 10px;
     }
 
-    .header__bottsect .container .col-xl-9>ul>li>a {
+    .header__bottsect .container .navcolumn>ul>li>a {
         font-size: 17px;
         margin-bottom: 5px;
     }
@@ -1113,6 +1189,19 @@ header.header {
 
     .header__topsect {
         padding: 10px 0;
+    }
+
+    .header__contus {
+        margin-bottom: 0;
+    }
+
+    .header__bottsect {
+        padding-bottom: 40px;
+        height: calc(100vh - 135px);
+    }
+
+    .header__bottsect .container .navcolumn>ul {
+        padding-bottom: 10px;
     }
 
 }

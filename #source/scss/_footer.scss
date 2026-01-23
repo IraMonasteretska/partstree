@@ -1,6 +1,7 @@
 footer.footer {
     padding: 75px 0;
-    background: #272727;
+    background: #fff;
+    border-top: 1px solid #CECBCB;
 }
 
 .footer__logosect {
@@ -14,8 +15,8 @@ footer.footer {
     }
 
     p {
-        color: #fff;
-        margin-bottom: 70px;
+        color: #606060;
+        margin-bottom: 40px;
         font-weight: 500;
         font-size: 15px;
         line-height: 126%;
@@ -36,7 +37,7 @@ footer.footer {
             }
 
             a {
-                opacity: 0.1;
+                // opacity: 0.1;
                 transition: 0.3s;
                 display: inline-flex;
                 align-items: center;
@@ -44,8 +45,8 @@ footer.footer {
                 width: 60px;
                 height: 60px;
 
-                &:hover {
-                    opacity: 1;
+                img {
+                    width: 100%;
                 }
             }
         }
@@ -53,20 +54,19 @@ footer.footer {
 }
 
 .footer__rightsect {
-    padding-top: 23px;
 
     .footblock {
-        margin-bottom: 25px;
+        margin-bottom: 15px;
 
         p {
             margin-bottom: 0;
             font-size: 17px;
-            color: #fff;
+             color: #606060;
         }
 
         a {
             text-decoration: none;
-            color: #fff;
+            color: #606060;
             font-size: 17px;
             font-weight: 700;
             line-height: 170%;
@@ -112,21 +112,19 @@ footer.footer {
             a {
                 transition: 0.3s;
 
-                &:hover {
-                    filter: brightness(1.5);
+                // &:hover {
+                //     filter: brightness(1.5);
 
-                    img {
-                        filter: drop-shadow(0 0 5px rgba(#fff, 0.3));
-                    }
-                }
+                //     img {
+                //         filter: drop-shadow(0 0 5px rgba(#fff, 0.3));
+                //     }
+                // }
             }
         }
     }
 }
 
 .footercentersect {
-    text-align: center;
-    padding-top: 23px;
 
     .footer__listwrap {
         display: inline-block;
@@ -135,7 +133,8 @@ footer.footer {
 
         p {
             font-size: 17px;
-            color: #fff;
+            font-weight: 700;
+            color: #606060;
             line-height: 170%;
             margin-bottom: 20px;
         }
@@ -154,10 +153,10 @@ footer.footer {
                 }
 
                 a {
-                    color: #fff;
+                    color: #606060;
                     line-height: 110%;
                     font-size: 16px;
-                    font-weight: 600;
+                    font-weight: 500;
                     text-decoration: none;
                     transition: 0.3s;
 
@@ -238,6 +237,7 @@ footer.footer {
     .moblogo {
         display: inline-block;
         margin-bottom: 40px;
+
         img {
             max-width: 100%;
         }
@@ -249,6 +249,7 @@ footer.footer {
 
         p {
             margin-bottom: 10px;
+
             br {
                 display: none;
             }
