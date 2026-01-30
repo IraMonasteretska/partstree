@@ -267,9 +267,21 @@ $(document).ready(function () {
     });
 
     // model list gallery 
+    const mainImage = document.querySelector('.modgall-mainimg .imgwrap img');
+    const sideImages = document.querySelectorAll('.modgall-sideimgs .imgwrap img');
+
+    sideImages.forEach(img => {
+        img.addEventListener('mouseenter', () => {
+            mainImage.src = img.src;
+        });
+
+        img.addEventListener('click', () => {
+            mainImage.src = img.src;
+        });
+    });
+
 
     const mainImageModal = document.querySelector('.catlistpopup__leftblock .imgwrap img');
-    const mainImageLink = document.querySelector('.catlistpopup__leftblock .imgwrap a'); // Отримуємо <a>
     const sideImagesModal = document.querySelectorAll('.prodpicgroup .prodpicgroup__img img');
 
     sideImagesModal.forEach(img => {
@@ -279,13 +291,6 @@ $(document).ready(function () {
             setTimeout(() => {
                 mainImageModal.src = img.src;
 
-                // Додаємо "big-" перед назвою файлу
-                const imgSrcParts = img.src.split('/');
-                const fileName = imgSrcParts.pop(); // Отримуємо назву файлу
-                const bigFileName = 'big-' + fileName; // Додаємо префікс "big-"
-                const bigImageSrc = imgSrcParts.join('/') + '/' + bigFileName; // Формуємо новий шлях
-
-                mainImageLink.href = bigImageSrc; // Оновлюємо href для Fancybox
                 mainImageModal.style.opacity = '1';
             }, 300);
 
@@ -296,6 +301,7 @@ $(document).ready(function () {
             img.parentElement.classList.add('active');
         });
     });
+
 
     // tooltip
     const tooltipTriggerList = document.querySelectorAll('#mainstepbtn.disabled[data-bs-toggle="tooltip"]')

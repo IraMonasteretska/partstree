@@ -167,12 +167,20 @@
 
 // ----------
 .model-gallery {
-    max-width: 100%;
-    margin-top: -50px;
+    width: 100%;
+    max-width: 59%;
+    flex: 0 0 59%;
+    padding-left: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    // margin-top: -85px;
 
     .modgall-mainimg {
         width: 100%;
-        height: 140px;
+        max-width: calc(100% - 85px);
+        flex: 0 0 calc(100% - 85px);
+        height: 255px;
         position: relative;
         display: flex;
         align-items: center;
@@ -526,15 +534,275 @@
     margin-top: 20px;
 }
 
+// -------30.01
+// diagram page
+.flex-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.diagrams-header {
+    position: relative;
+    padding: 12px 0;
+
+    .breadcrumbwrapper {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+    }
+
+    h1 {
+        color: #352C2B;
+        font-size: 45px;
+        font-weight: 700;
+        line-height: 130%;
+    }
+}
+
+.brand-cta {
+    width: 100%;
+    max-width: 41%;
+    flex: 0 0 41%;
+    text-align: right;
+}
+
+.diagrams-brand {
+    height: 120px;
+    max-width: 238px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid #C9C9C9;
+    width: 100%;
+    margin-bottom: 16px;
+
+    img {
+        max-width: calc(100% - 10px);
+        max-height: calc(100% - 10px);
+    }
+}
+
+.diagrams-ctabox {
+    min-height: 120px;
+    max-width: 238px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid #C9C9C9;
+    width: 100%;
+    margin-bottom: 16px;
+    text-align: center;
+    padding: 5px 15px;
+
+    p {
+        margin-bottom: 12px;
+        color: #141414;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 130%;
+    }
+}
+
+.diagrams-ctabox__btn {
+    height: 41px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    background: #51801A;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+        color: #fff;
+        background: rgb(107, 169, 36);
+    }
+}
+
+.diagrams-body {
+    background: #F4F4F4;
+    padding: 40px 0 100px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .row {
+        margin-left: -10px;
+        margin-right: -10px;
+
+        &>* {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+
+    .diagrams-sidecolleft,
+    .diagrams-sidecolright {
+        width: 100%;
+        max-width: 30%;
+        flex: 0 0 30%;
+    }
+
+    .diagrams-centercol {
+        width: 100%;
+        max-width: 40%;
+        flex: 0 0 40%;
+    }
+
+    .modelbox-col {
+        margin-bottom: 12px;
+    }
+
+    .modelbox {
+        .descrwrap {
+            padding: 0 80px 30px 35px;
+
+            img {
+                width: 46px;
+                height: 46px;
+                right: 30px;
+            }
+        }
+    }
+}
+
+.product-partdiagram {
+    background: #fff;
+    border-radius: 15px;
+    padding: 24px;
+    box-shadow: 0px 3.42px 20.52px 0px #0000000F;
+
+    .title {
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        font-size: 16px;
+        color: #141414;
+        font-weight: 700;
+        line-height: 130%;
+    }
+}
+
+.partdiagram__table {
+    width: 100%;
+    border: 1px solid #D3D4D5;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+
+    th,
+    td {
+        border: 1px solid #D3D4D5;
+        padding: 0 5px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #141414;
+    }
+
+
+}
+
+.partdiagram__img {
+    img {
+        width: 100%;
+    }
+}
+
+.pagination.pagination__sm {
+    margin-top: 7px;
+
+    ul li a,
+    .pagination ul li span {
+        width: 50px;
+        height: 50px;
+    }
+
+    ul li:last-child {
+        margin-left: 0;
+    }
+
+    ul li:first-child {
+        margin-right: 13px;
+    }
+
+
+}
+
+.table-wrapper {
+    width: 100%;
+    position: relative;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #51801A;
+        border-radius: 6px;
+    }
+}
+
 @media(max-width:1599.8px) {
-    // .diaglisttop {
-    //     padding-bottom: 100px;
-    // }
 
     .diaglisttop h1 {
         font-size: 41px;
         margin-bottom: 25px;
     }
+
+    // 30.01 diagram page
+    .product-wrapper {
+        .modelbox {
+            .imgwrap {
+                height: 260px;
+            }
+
+            .descrwrap .title {
+                font-size: 18px;
+            }
+        }
+
+
+    }
+
+    .pagination.pagination__sm {
+        margin-top: 7px;
+
+        ul li a,
+        .pagination ul li span {
+            width: 40px;
+            height: 40px;
+        }
+
+        ul li:last-child {
+            margin-left: 0;
+        }
+
+        ul li:first-child {
+            margin-right: 13px;
+        }
+
+
+    }
+
+    .diagrams-brand,
+    .diagrams-ctabox {
+        max-width: 200px;
+    }
+
 }
 
 @media(max-width:1530.8px) {
@@ -596,9 +864,60 @@
         padding: 0 100px 20px 20px;
     }
 
-    // .diaglistmain .modelbox .descrwrap {
-    //     height: calc(100% - 260px);
-    // }
+    // 30.01 diagram page
+    .diagrams-body {
+        .modelbox {
+            .descrwrap {
+                padding: 0 70px 20px 20px;
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                    right: 20px;
+                }
+            }
+
+            .imgwrap {
+                height: 220px;
+            }
+        }
+
+        .modlistsidebar {
+            padding: 20px;
+        }
+    }
+
+    .pagination.pagination__sm {
+        ul li {
+            margin-right: 6px;
+        }
+
+        ul li a,
+        .pagination ul li span {
+            width: 35px;
+            height: 35px;
+            font-size: 15px;
+        }
+
+        ul li:last-child {
+            margin-left: 0;
+        }
+
+        ul li:first-child {
+            margin-right: 6px;
+        }
+
+
+    }
+
+    .diagrams-header {
+        padding-top: 70px;
+
+        .breadcrumbwrapper {
+            top: 30px;
+        }
+    }
+
 
 }
 
@@ -658,11 +977,41 @@
         border-radius: 10px;
     }
 
-    // .diaglistmain .modelbox .descrwrap {
-    //     height: calc(100% - 230px);
-    // }
+    // 30.01 diagram page
+    .diagrams-body {
 
+        .diagrams-centercol {
+            max-width: 60%;
+            flex: 0 0 60%;
+        }
 
+        .diagrams-sidecolright {
+            max-width: 40%;
+            flex: 0 0 40%;
+        }
+
+        .diagrams-sidecolleft {
+            padding-top: 30px;
+            max-width: 100%;
+            flex: 0 0 100%;
+        }
+    }
+
+    .diagrams-brand,
+    .diagrams-ctabox {
+        max-width: 260px;
+    }
+
+    .pagination.pagination__sm {
+        margin-top: 15px;
+    }
+
+    .pagination.pagination__sm .pagination ul li span,
+    .pagination.pagination__sm ul li a {
+        width: 45px;
+        height: 45px;
+        font-size: 15px;
+    }
 
 
 }
@@ -728,8 +1077,25 @@
         padding-bottom: 30px;
     }
 
+    // 30.01 diagram page
+    .diagrams-header h1 {
+        margin-bottom: 20px !important;
+    }
 
+    .diagrams-body .diagrams-centercol,
+    .diagrams-body .diagrams-sidecolright {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
 
+    .product-partdiagram {
+        margin-bottom: 30px;
+    }
+
+    .partdiagram__table td,
+    .partdiagram__table th {
+        font-size: 14px;
+    }
 
 }
 
@@ -765,6 +1131,30 @@
     .diagcol-title {
         font-size: 21px;
     }
+
+    // 30.01 diagram page
+    .diagrams-header h1 {
+        font-size: 32px;
+    }
+
+    .model-gallery {
+        padding-left: 0;
+    }
+
+    .diagrams-brand,
+    .diagrams-ctabox {
+        max-width: 200px;
+    }
+
+    .partdiagram__table td,
+    .partdiagram__table th {
+        font-size: 12px;
+    }
+
+
+
+
+
 
 
 }
@@ -876,15 +1266,15 @@
         margin-top: 0;
     }
 
-    .model-gallery .modgall-mainimg {
-        max-width: 100px;
-        height: 70px;
-    }
+    // .model-gallery .modgall-mainimg {
+    //     max-width: 100px;
+    //     height: 70px;
+    // }
 
-    .model-gallery .plusicon {
-        right: 0;
-        bottom: 0;
-    }
+    // .model-gallery .plusicon {
+    //     right: 0;
+    //     bottom: 0;
+    // }
 
     // .diaglistmain 
     .modelbox .descrwrap {
@@ -901,5 +1291,45 @@
     .diaglistmain .row {
         margin-left: -12px;
         margin-right: -12px;
+    }
+
+    // 30.01 diagram page
+
+    .model-gallery,
+    .brand-cta {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .model-gallery {
+        margin-bottom: 15px;
+    }
+
+    .diagrams-brand,
+    .diagrams-ctabox {
+        max-width: 100%;
+
+        p {
+            font-size: 16px;
+        }
+    }
+
+    .partdiagram__table {
+        min-width: 600px;
+    }
+
+    .pagination.pagination__sm .pagination ul li span,
+    .pagination.pagination__sm ul li a {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .diagrams-body {
+        padding-bottom: 50px;
+    }
+
+    .table-wrapper {
+        margin-bottom: 30px;
     }
 }
