@@ -368,7 +368,6 @@ $(document).ready(function () {
     // fancybox
     if ($('[data-fancybox]').length) {
         Fancybox.bind("[data-fancybox]", {
-            // Your custom options
         });
     }
 
